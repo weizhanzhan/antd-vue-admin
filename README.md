@@ -1,5 +1,5 @@
 # antd-vue-admin
-![Image text](https://github.com/weizhanzhan/vue-admin/blob/master/static/index.png)
+![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/master/public/index.PNG)
 vue-cli3 + vue全家桶 + ant-design-vue
 # 演示地址
 <a href="http://admin.zhanwei.xyz">antd-vue-admin</a>
