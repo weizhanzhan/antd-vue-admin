@@ -3,7 +3,7 @@
         <a-row>
             <a-col :span="7" class="account-item">
                 <div class="account-info">
-
+                    <Info/>
                 </div>
             </a-col>
             <a-col :span="17" class="account-item">
@@ -16,8 +16,9 @@
 </template>
 
 <script>
+import Info from './components/info.vue'
 export default {
-
+    components:{Info}
 }
 </script>
 
@@ -29,7 +30,7 @@ export default {
         padding: 8px 16px 12px 8px;
         .account-info{
             width: 100%;
-            height: 500px;
+            min-height: 500px;
             background: #ffffff
         }
         .account-detail{

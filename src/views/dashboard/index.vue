@@ -48,14 +48,15 @@
             </a-col>
         </a-row>
         <div class="container-view">
-            <h2>Zhanwei Console & Dashboard</h2>
+            <Chart/>
         </div>
     </div>
 </template>
 
 <script>
-
+import Chart from './components/chart.vue'
 export default {
+    components:{Chart}
 }
 </script>
 
