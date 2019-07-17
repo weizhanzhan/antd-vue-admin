@@ -1,25 +1,29 @@
 <template>
-    <div class="account">
-        <a-row>
-            <a-col :span="7" class="account-item">
-                <div class="account-info">
-                    <Info/>
-                </div>
-            </a-col>
-            <a-col :span="17" class="account-item">
-                <div class="account-detail">
-
-                </div>
-            </a-col>
-        </a-row>
-    </div>
+  <div class="account">
+    <a-row>
+      <a-col
+        :span="7"
+        class="account-item"
+      >
+        <div class="account-info">
+          <Info />
+        </div>
+      </a-col>
+      <a-col
+        :span="17"
+        class="account-item"
+      >
+        <div class="account-detail" />
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script>
-import Info from './components/info.vue'
-export default {
-    components:{Info}
-}
+  import Info from './components/info.vue'
+  export default {
+    components: { Info }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -34,13 +38,13 @@ export default {
             background: #ffffff
         }
         .account-detail{
-        
+
             width: 100%;
             height: 500px;
             background: #ffffff
     }
     }
-    
+
 }
 
 </style>

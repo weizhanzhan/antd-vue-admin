@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function loginByUsername(username, password) {
   const data = {
-    email:username,
+    email: username,
     password
   }
   return request({
@@ -12,9 +12,9 @@ export function loginByUsername(username, password) {
   })
 }
 
-export function getUserInfo(){
+export function getUserInfo() {
   return request({
-      url:'/current',
+      url: '/current',
       method: 'get'
   })
 }

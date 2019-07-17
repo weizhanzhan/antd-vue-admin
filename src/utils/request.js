@@ -10,15 +10,13 @@ const service = axios.create({
 
 service.interceptors.request.use(
     config => {
-
-        const token =  getToken();
-        if (token) {  // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了
+        const token = getToken()
+        if (token) { // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了
              config.headers['Authorization'] = token
         }
         return config
     },
     error => {
-    
         Promise.reject(error)
     }
 )
@@ -26,7 +24,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
 
     response => {
-        //if (res.code !== 20000) {//错误处理 根据自己业务修改
+        // if (res.code !== 20000) {//错误处理 根据自己业务修改
             // Message({
             //     message: res.message,
             //     type: 'error',
@@ -50,28 +48,20 @@ service.interceptors.response.use(
             // }
           //  return Promise.reject('error')
       //  } else {
-          console.log(response)
+
             return response.data
      //   }
-
     },
     error => {
-        console.log(Object.keys(error),error.code)
-        Object.keys(error).forEach(key =>{
-            console.log(key,error[key])
-        })
-        if(error.code){
+        if (error.code) {
             message.error('网络超时....')
         }
-        if(error.response&&error.response.data){
+        if (error.response && error.response.data) {
             message.error(error.response.data)
-            if(error.response.status == 401)
-                router.push('/login')
-    
+            if (error.response.status === 401) { router.push('/login') }
         }
-       
+
         return Promise.reject(error)
-        
     }
 )
 

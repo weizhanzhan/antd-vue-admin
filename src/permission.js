@@ -3,7 +3,7 @@ import store from './store'
 import { getToken } from '@/utils/auth'
 import { message } from 'ant-design-vue'
 
-const whiteList = ['/login', '/auth-redirect'] 
+const whiteList = ['/login', '/auth-redirect']
 
 function hasPermission(roles, permissionRoles) {
     if (roles.includes('admin')) return true // admin permission passed directly
@@ -11,34 +11,31 @@ function hasPermission(roles, permissionRoles) {
     return roles.some(role => permissionRoles.indexOf(role) >= 0)
   }
 
-  
 router.beforeEach((to, from, next) => {
-   
-    if(getToken()){
-        if(whiteList.indexOf(to.path)!=-1){  
+    console.log(to)
+    if (getToken()) {
+        if (whiteList.indexOf(to.path) != -1) {
             next()
-        }else{
+        } else {
             if (store.getters.roles.length === 0) {
-                store.dispatch('GetUserInfo').then(info=>{
+                store.dispatch('GetUserInfo').then(info => {
                     const roles = info.role
-                    store.dispatch('GenerateRoutes',{ roles })//根据用户权限生产可访问的路由表
-                    .then(()=>{         
+                    store.dispatch('GenerateRoutes', { roles })// 根据用户权限生产可访问的路由表
+                    .then(() => {
                           router.addRoutes(store.getters.addRoutes)
                           next({ ...to, replace: true })
                     })
-                })     
-            }else{
-           
-                if (hasPermission(store.getters.roles, to.meta.roles)) {//当如果一个角色登录过后，再次有登录的话回去再次验证该角色是否有权限进入该路由
+                })
+            } else {
+                if (hasPermission(store.getters.roles, to.meta.roles)) { // 当如果一个角色登录过后，再次有登录的话回去再次验证该角色是否有权限进入该路由
                     next()
                 } else {
                     message.error('你没有权限')
                     next({ path: '/login', replace: true, query: { noGoBack: true }})
                 }
-            
             }
         }
-    }else{
+    } else {
         if (whiteList.indexOf(to.path) !== -1) {
             // 在免登录白名单，直接进入
             next()
@@ -50,5 +47,5 @@ router.beforeEach((to, from, next) => {
 })
 
 // router.afterEach( route => {
-   
+
 // })

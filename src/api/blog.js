@@ -1,7 +1,6 @@
 import request from '@/utils/request'
 
 export function uploadBlog(data) {
-
   return request({
     url: '/blog/addblog',
     method: 'post',
@@ -10,7 +9,6 @@ export function uploadBlog(data) {
 }
 
 export function baseToImg(data) {
-
     return request({
       url: '/blog/basetoimg',
       method: 'post',
@@ -27,20 +25,20 @@ export function getAllBlogs(params) {
 }
 export function deleteBlog(id) {
   return request({
-    url: '/blog/deleteblog/'+id,
-    method: 'delete',
+    url: '/blog/deleteblog/' + id,
+    method: 'delete'
   })
 }
-export function getBlogById(id){
+export function getBlogById(id) {
   return request({
-    url: '/blog/getblog/'+id,
-    method: 'get',
+    url: '/blog/getblog/' + id,
+    method: 'get'
   })
 }
 
-export function editBlog(id,data){
+export function editBlog(id, data) {
   return request({
-    url: '/blog/editblog/'+id,
+    url: '/blog/editblog/' + id,
     method: 'post',
     data
   })

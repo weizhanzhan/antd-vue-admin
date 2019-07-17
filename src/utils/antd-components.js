@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import { 
-    Button ,
+import {
+    Button,
     Layout,
     Icon,
     Menu,
@@ -26,7 +26,7 @@ import {
     Table,
     Tag,
     Divider
-} from 'ant-design-vue';
+} from 'ant-design-vue'
 
 import {
     message
@@ -36,11 +36,10 @@ const {
     Footer,
     Sider,
     Content
-} = Layout;
-
+} = Layout
 
 const componentList = [
-    Button ,
+    Button,
     Layout,
     Header,
     Footer,
@@ -72,12 +71,12 @@ const componentList = [
     Divider
 ]
 
-componentList.forEach(component =>{
-    //Vue.component(component.name, component)
+componentList.forEach(component => {
+    // Vue.component(component.name, component)
     Vue.use(component)
 })
 
-Vue.prototype.$message = message;
+Vue.prototype.$message = message
 // import {
 //     Affix,
 //     Anchor,
@@ -138,7 +137,7 @@ Vue.prototype.$message = message;
 //     Comment,
 //     ConfigProvider,
 //   } from 'ant-design-vue';
-  
+
 //   Vue.prototype.$message = message;
 //   Vue.prototype.$notification = notification;
 //   Vue.prototype.$info = Modal.info;
@@ -146,7 +145,7 @@ Vue.prototype.$message = message;
 //   Vue.prototype.$error = Modal.error;
 //   Vue.prototype.$warning = Modal.warning;
 //   Vue.prototype.$confirm = Modal.confirm;
-  
+
 //   /* v1.1.3+ registration methods */
 //   Vue.use(Affix);
 //   Vue.use(Anchor);
@@ -202,4 +201,4 @@ Vue.prototype.$message = message;
 //   Vue.use(Skeleton);
 //   Vue.use(Comment);
 //   Vue.use(ConfigProvider);
-  
+

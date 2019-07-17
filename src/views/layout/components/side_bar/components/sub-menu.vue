@@ -22,7 +22,7 @@
   </a-sub-menu>
 </template>
 <script>
-export default {
-  props: ['menuInfo']
-};
+  export default {
+    props: ['menuInfo']
+  }
 </script>
