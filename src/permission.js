@@ -12,9 +12,8 @@ function hasPermission(roles, permissionRoles) {
   }
 
 router.beforeEach((to, from, next) => {
-    console.log(to)
     if (getToken()) {
-        if (whiteList.indexOf(to.path) != -1) {
+        if (whiteList.indexOf(to.path) !== -1) {
             next()
         } else {
             if (store.getters.roles.length === 0) {

@@ -15,18 +15,18 @@ export default {
         backgroundColor: 'rgba(255,255,255,1)',
         padding: [5, 10],
         textStyle: {
-            color: '#7588E4',
+            color: '#7588E4'
         },
         extraCssText: 'box-shadow: 0 0 5px rgba(0,0,0,0.3)'
     },
     legend: {
         right: 20,
         orient: 'vertical',
-        data: ['今日','昨日']
+        data: ['今日', '昨日']
     },
     xAxis: {
         type: 'category',
-        data: ['00:00','2:00','4:00','6:00','8:00','10:00','12:00','14:00','16:00','18:00','20:00',"22:00"],
+        data: ['00:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'],
         boundaryGap: false,
         splitLine: {
             show: true,

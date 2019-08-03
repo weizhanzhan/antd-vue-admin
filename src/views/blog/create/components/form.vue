@@ -1,57 +1,61 @@
 <template>
   <a-form
     :form="form"
-    class="create-form"
+    class="ant-advanced-search-form"
     @submit="handleSubmit"
   >
-    <a-form-item
-      label="标题"
-      :label-col="{ span: 3 }"
-      :wrapper-col="{ span: 10 }"
-    >
-      <a-input
-        v-decorator="[
-          'title',
-          {rules: [{ required: true, message: '标题不能为空!' }]}
-        ]"
-      />
-    </a-form-item>
-    <a-form-item
-      label="分类"
-      :label-col="{ span: 3 }"
-      :wrapper-col="{ span: 10 }"
-    >
-      <a-select
-        v-decorator="[
-          'classify',
-          {rules: [{ required: true, message: '请选择分类信息!' }]}
-        ]"
-        placeholder="请选择分类信息"
+    <a-row :gutter="24">
+      <a-col
+        :span="8"
       >
-        <a-select-option
-          v-for="c in classify"
-          :key="c"
-          :value="c"
+        <a-form-item
+          label="标题"
         >
-          {{ c }}
-        </a-select-option>
-      </a-select>
-    </a-form-item>
-    <a-form-item :wrapper-col="{ span: 17, offset: 3 }">
-      <mavon-editor
-ref="md"
-                    v-model="handbook"
-@imgAdd="imgAdd"
-/>
-    </a-form-item>
-    <a-form-item
-      :wrapper-col="{ span: 12, offset: 3 }"
-    >
+          <a-input
+            v-decorator="[
+              'title',
+              {rules: [{ required: true, message: '标题不能为空!' }]}
+            ]"
+          />
+        </a-form-item>
+      </a-col>
+      <a-col
+        :span="8"
+      >
+        <a-form-item
+          label="分类"
+        >
+          <a-select
+            v-decorator="[
+              'classify',
+              {rules: [{ required: true, message: '请选择分类信息!' }]}
+            ]"
+            placeholder="请选择分类信息"
+          >
+            <a-select-option
+              v-for="c in classify"
+              :key="c"
+              :value="c"
+            >
+              {{ c }}
+            </a-select-option>
+          </a-select>
+        </a-form-item>
+      </a-col>
+    </a-row>
+
+    <mavon-editor
+      ref="md"
+      v-model="handbook"
+      @imgAdd="imgAdd"
+    />
+
+    <a-form-item>
       <a-button
         type="primary"
         html-type="submit"
       >
-        Submit
+        提交
       </a-button>
     </a-form-item>
   </a-form>
@@ -138,9 +142,37 @@ ref="md"
   }
 </script>
 <style lang="scss">
-.create-form{
-  .v-note-wrapper{
-    z-index: 100;
-  }
+.v-note-wrapper{
+  z-index: 100 !important;
+  min-height: 600px !important;
+}
+
+.ant-advanced-search-form .ant-form-item {
+  display: flex;
+}
+
+.ant-advanced-search-form .ant-form-item-control-wrapper {
+  flex: 1;
+}
+
+#components-form-demo-advanced-search .ant-form {
+  max-width: none;
+}
+#components-form-demo-advanced-search .search-result-list {
+  margin-top: 16px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 6px;
+  background-color: #fafafa;
+  min-height: 200px;
+  text-align: center;
+  padding-top: 80px;
+}
+.v-note-wrapper .v-note-panel.shadow{
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: none !important;
+}
+.v-note-wrapper .v-note-op.shadow{
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: none !important;
 }
 </style>

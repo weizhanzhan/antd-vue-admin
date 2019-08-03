@@ -1,6 +1,5 @@
 <template>
   <div class="container-view">
-    <h1>博客列表</h1>
     <a-table
       :columns="columns"
       :data-source="datas"
@@ -58,7 +57,7 @@
 <script>
   import globalMixin from '@/mixins/global.js'
   import {
-    getAllBlogs, deleteBlog, getBlogById
+    getAllBlogs, deleteBlog
   } from '@/api/blog'
   const columns = [{
     dataIndex: 'titles',
@@ -104,10 +103,7 @@
     data() {
       return {
         columns,
-        datas: [],
-        nowpage: 1,
-        total: 0,
-        pagesize: 10
+        datas: []
       }
     },
     mounted() {
@@ -138,7 +134,6 @@
       },
       pageChange(page, size) {
         this.nowpage = page
-
         this.init()
       },
       onDelete(id) {

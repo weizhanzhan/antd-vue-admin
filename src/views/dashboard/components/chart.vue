@@ -1,8 +1,7 @@
 <template>
   <div
-    id="main"
     ref="chart"
-    style="height:500px;width:90%"
+    style="height:500px;width:100%"
   />
 </template>
 
@@ -10,14 +9,23 @@
   import echarts from 'echarts'
   import option from './options'
   export default {
+    data() {
+      return {
+        chart: null
+      }
+    },
     mounted() {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById('main'))
+      this.chart = echarts.init(this.$refs.chart)
       // 绘制图表
-      myChart.setOption(option)
-      window.onresize = function() {
-        myChart.resize()
+      this.chart.setOption(option)
+
+      window.onresize = () => {
+        this.chart.resize()
       }
+      setTimeout(() => {
+        this.chart.resize()
+      }, 0)
     }
   }
 </script>
