@@ -1,67 +1,119 @@
 <template>
-    <div class="info">
-        <div class="head">
-            <div class="avatar">
-                <img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" >
-                <div class="name"> Zhanwei</div>
-            </div>
-            <div class="infomation">
-                <p class="item">
-                    <a-icon type="user" />web前端开发工程师
-                </p>
-                <p class="item">
-                   <a-icon type="bank" />Amole信息科技
-                </p>
-                <p class="item">
-                    <a-icon type="global" />江苏常州
-                </p>
-            </div>
+  <div class="info">
+    <div class="info-head">
+      <div class="avatar">
+        <img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png">
+        <div class="name">
+          Zhanwei
         </div>
-        <a-divider dashed  />
-        <div class="tag">
-            <div class="title">标签</div>
-            <div class="tags">
-            <a-tag color="pink">vue</a-tag>
-            <a-tag color="red">js</a-tag>
-            <a-tag color="orange">react</a-tag>
-            <a-tag color="green">electron</a-tag>
-            <a-tag color="cyan">屌丝</a-tag>
-            <a-tag color="blue">猛男</a-tag>
-            <a-tag color="purple">欧巴~</a-tag>
-            </div>
-        </div>
-        <a-divider dashed  />
-        <div class="team">
-            <div class="title">团队</div>
-            <a-row>
-                <a-col :span="12" class="item">
-                    <a-avatar style="color: #f56a00; backgroundColor: #fde3cf" size="small">A</a-avatar> Amole天团
-                </a-col>
-                <a-col :span="12" class="item">
-                    <a-avatar style="color: #f56a00; backgroundColor: #fde3cf" size="small">A</a-avatar> Amole天团
-                </a-col>
-            </a-row>
-             <a-row>
-                <a-col :span="12" class="item">
-                    <a-avatar style="color: #f56a00; backgroundColor: #fde3cf" size="small">A</a-avatar> Amole天团
-                </a-col>
-                <a-col :span="12" class="item">
-                    <a-avatar style="color: #f56a00; backgroundColor: #fde3cf" size="small">A</a-avatar> Amole天团
-                </a-col>
-            </a-row>
-        </div>
+      </div>
+      <div class="infomation">
+        <p class="item">
+          <a-icon type="user" />web前端开发工程师
+        </p>
+        <p class="item">
+          <a-icon type="bank" />Amole信息科技
+        </p>
+        <p class="item">
+          <a-icon type="global" />江苏常州
+        </p>
+      </div>
     </div>
+    <a-divider dashed />
+    <div class="tag">
+      <div class="title">
+        标签
+      </div>
+      <div class="tags">
+        <a-tag color="pink">
+          vue
+        </a-tag>
+        <a-tag color="red">
+          js
+        </a-tag>
+        <a-tag color="orange">
+          react
+        </a-tag>
+        <a-tag color="green">
+          electron
+        </a-tag>
+        <a-tag color="cyan">
+          屌丝
+        </a-tag>
+        <a-tag color="blue">
+          猛男
+        </a-tag>
+        <a-tag color="purple">
+          欧巴~
+        </a-tag>
+      </div>
+    </div>
+    <a-divider dashed />
+    <div class="team">
+      <div class="title">
+        团队
+      </div>
+      <a-row>
+        <a-col
+          :span="12"
+          class="item"
+        >
+          <a-avatar
+            style="color: #f56a00; backgroundColor: #fde3cf"
+            size="small"
+          >
+            A
+          </a-avatar> Amole天团
+        </a-col>
+        <a-col
+          :span="12"
+          class="item"
+        >
+          <a-avatar
+            style="color: #f56a00; backgroundColor: #fde3cf"
+            size="small"
+          >
+            A
+          </a-avatar> Amole天团
+        </a-col>
+      </a-row>
+      <a-row>
+        <a-col
+          :span="12"
+          class="item"
+        >
+          <a-avatar
+            style="color: #f56a00; backgroundColor: #fde3cf"
+            size="small"
+          >
+            A
+          </a-avatar> Amole天团
+        </a-col>
+        <a-col
+          :span="12"
+          class="item"
+        >
+          <a-avatar
+            style="color: #f56a00; backgroundColor: #fde3cf"
+            size="small"
+          >
+            A
+          </a-avatar> Amole天团
+        </a-col>
+      </a-row>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {
+  export default {
 
-}
+  }
 </script>
 <style lang="scss" scoped>
 .info{
     padding: 24px;
-    .head{
+    .info-head{
         .avatar{
             text-align: center;
             img{
