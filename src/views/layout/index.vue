@@ -27,7 +27,6 @@
   import headerBar from './components/header_bar'
   import sideBar from './components/side_bar'
   import breadCrumb from '../../components/bread_crumb'
-
   export default {
     components: {
       sideBar,

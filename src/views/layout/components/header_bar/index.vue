@@ -79,6 +79,9 @@
         type: Boolean
       }
     },
+    computed: {
+      ...mapGetters(['user'])
+    },
     methods: {
       changeCollapsed() {
         this.$emit('trigger')
@@ -99,10 +102,6 @@
       langChage({ key }) {
         this.$bus.$emit('change-lang', key)
       }
-    },
-    computed: {
-
-      ...mapGetters(['user'])
     }
   }
 </script>

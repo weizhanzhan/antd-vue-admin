@@ -57,7 +57,8 @@ service.interceptors.response.use(
             message.error('网络超时....')
         }
         if (error.response && error.response.data) {
-            message.error(error.response.data)
+            console.log(Object.values(error.response.data))
+            message.error(Object.values(error.response.data))
             if (error.response.status === 401) { router.push('/login') }
         }
 
