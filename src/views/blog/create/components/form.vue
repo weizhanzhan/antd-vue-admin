@@ -79,7 +79,7 @@
           // bold: true, // 粗体
         },
         handbook: '',
-        classify: ['Vue.js', 'React.js', 'Angular', 'Python', 'Javascript', 'Html5', 'NodeJs', 'Css']
+        classify: ['Vue.js', 'React.js', 'Angular', 'Python', 'Javascript', 'Html5', 'NodeJs', 'Css', 'Plan']
       }
     },
     mounted() {
