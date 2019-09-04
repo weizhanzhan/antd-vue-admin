@@ -43,3 +43,10 @@ export function editBlog(id, data) {
     data
   })
 }
+
+export function getBlogCategory() {
+  return request({
+    url: '/categories',
+    method: 'get'
+  })
+}

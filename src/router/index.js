@@ -109,6 +109,15 @@ export const asyncRoutes = [
                     roles: ['admin'],
                     title: '写博客'
                 }
+            },
+            {
+                path: 'category',
+                name: 'blogCategory',
+                component: r => require.ensure([], () => r(require('@/views/blog/category'))),
+                meta: {
+                    roles: ['admin'],
+                    title: '分类'
+                }
             }
 
         ]

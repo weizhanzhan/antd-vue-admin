@@ -5,7 +5,7 @@ import router from '@/router'
 const service = axios.create({
   //  baseURL: process.env.BASE_API,111.231.59.56 ,192.168.1.115
     baseURL: 'http://111.231.59.56:5000/api',
-    timeout: 5000
+    timeout: 10000
 })
 
 service.interceptors.request.use(
