@@ -54,6 +54,15 @@
         </div>
       </a-col>
     </a-row>
+    <a-modal
+      title="Title"
+      :visible="visible"
+      :confirm-loading="confirmLoading"
+      @ok="handleOk"
+      @cancel="handleCancel"
+    >
+      <p>{{ ModalText }}</p>
+    </a-modal>
   </div>
 </template>
 
@@ -62,7 +71,9 @@
   export default {
     data() {
       return {
-        categoryList: []
+        categoryList: [],
+        visible: false,
+        confirmLoading: false
       }
     },
     mounted() {
@@ -73,6 +84,14 @@
         }).catch(() => {
 
         })
+    },
+    methods: {
+      handleOk() {
+
+      },
+      handleCancel() {
+
+      }
     }
   }
 </script>
