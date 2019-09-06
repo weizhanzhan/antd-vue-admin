@@ -61,23 +61,28 @@ export const constantRoutes = [
         }]
     },
     {
-        hidden: true,
-        path: '/404',
-        component: r => require.ensure([], () => r(require('@/views/layout'))),
-        redirect: '/404/index',
-        name: '404',
-        meta: {
-            firstChildName: 'dashBoardIndex'
-        },
-        children: [{
-            path: 'index',
-            name: '404',
-            component: r => require.ensure([], () => r(require('@/views/404'))),
-            meta: {
-                title: '404'
-            }
-        }]
+
+        path: '*', hidden: true, name: '404', component: r => require.ensure([], () => r(require('@/views/404')))
+
     }
+    // {
+    //     hidden: true,
+    //     path: '/404',
+    //     component: r => require.ensure([], () => r(require('@/views/layout'))),
+    //     redirect: '/404/index',
+    //     name: '404',
+    //     meta: {
+    //         firstChildName: 'dashBoardIndex'
+    //     },
+    //     children: [{
+    //         path: 'index',
+    //         name: '404',
+    //         component: r => require.ensure([], () => r(require('@/views/404'))),
+    //         meta: {
+    //             title: '404'
+    //         }
+    //     }]
+    // }
 
 ]
 

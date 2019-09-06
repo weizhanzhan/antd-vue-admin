@@ -1,86 +1,48 @@
 <template>
-  <div class="container">
-    <div class="screen">
-      <ul>
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-      </ul>
+  <div style="background:#f0f2f5;margin-top: -20px;">
+    <div class="wscn-http404">
+      <div
+        class="pic-404"
+        style="text-align:center;margin-top:150px"
+      >
+        <img
+          :src="img404"
+          class="pic-404__parent"
+          alt="404"
+        >
+        <!-- <img
+          :src="img404cloud"
+          class="pic-404__child left"
+          alt="404"
+        >
+        <img
+          :src="img404cloud"
+          class="pic-404__child mid"
+          alt="404"
+        >
+        <img
+          :src="img404cloud"
+          class="pic-404__child right"
+          alt="404"
+        > -->
+      </div>
     </div>
   </div>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import { Emit, Vue, Component } from 'vue-property-decorator'
 
+  const img404 = require('@/assets/images/404.png')
+  const img404cloud = require('@/assets/images/404_cloud.png')
+
+  @Component
+  export default class UpdatePwd extends Vue {
+    img404: any = img404;
+
+    img404cloud: any = img404cloud;
+
+    message: string = '特朗普说这个页面你不能进......';
   }
 </script>
 
-<style scoped>
-.container{
-
-}
-.screen{
-  position:relative;
-  height:100px;
-  width:100px;
-  overflow:hidden;
-  background:#301353;
-  margin: 0 auto;
-  margin-top: 100px;
-  /* border: 10px solid #000;
-  border-radius: 10px; */
-  /* padding: 10px */
-}
-.screen ul{
-  position: absolute;
-  list-style:none;
-  top: 0;
-  padding:0;
-  margin: 0;
-  width:100px;
-  animation: codeMove 5s linear infinite;
-}
-.screen li {
-  position: relative;
-  height: 5px;
-  margin: 0 0 5px 0;
-  border-radius: 5px;
-  width:60px;
-  background:#ffb023;
-}
-
-.screen li:nth-child(2n+0){
-  background:#ff4766;
-  width:50%
-}
-.screen li:nth-child(3n+0){
-  background:#29b97d;
-  width:70%
-}
-.screen .title{
-  width:100%;
-  height:20px;
-  background:#000000;
-}
-@keyframes codeMove{
-  100%{
-    top: -60%
-  }
-}
-</style>

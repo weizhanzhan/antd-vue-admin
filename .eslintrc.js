@@ -182,7 +182,10 @@ module.exports = {
     'array-bracket-spacing': [2, 'never']
     },
     parserOptions: {
-        parser: 'babel-eslint'
+        parser: 'babel-eslint',
+        "ecmaFeatures": {
+          "legacyDecorators": true
+        }
     },
     globals: {
         location: true,
