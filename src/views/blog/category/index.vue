@@ -2,7 +2,6 @@
   <div class="container-view no-bg">
     <a-row>
       <a-col
-
         class="cate-item"
         :xs="24"
         :sm="12"
@@ -38,9 +37,7 @@
             </div>
             <div class="clear-float" />
             <div class="item-img">
-              <img
-                :src="item.imgUrl"
-              >
+              <img :src="item.imgUrl">
             </div>
           </div>
           <div class="card-footer">
@@ -66,93 +63,97 @@
   </div>
 </template>
 
-<script>
-  import { getBlogCategory } from '../../../api/blog'
-  export default {
-    data() {
-      return {
-        categoryList: [],
-        visible: false,
-        confirmLoading: false
-      }
-    },
-    mounted() {
-      getBlogCategory()
-        .then((result) => {
-          console.log(result)
-          this.categoryList = result
-        }).catch(() => {
+<script lang="ts">
+  import { getBlogCategory } from '../../../api/blog';
+  import { Provide, Vue } from 'vue-property-decorator';
+  export default class BlogCateGory extends Vue {
+  @Provide() categoryList: Array<Object> = [];
+  @Provide() visible: Boolean = false;
+  @Provide() confirmLoading: Boolean = false;
 
-        })
-    },
-    methods: {
-      handleOk() {
-
-      },
-      handleCancel() {
-
-      }
-    }
+  created() {
+    getBlogCategory()
   }
+  }
+// export default {
+//   data() {
+//     return {
+//       categoryList: [],
+//       visible: false,
+//       confirmLoading: false
+//     }
+// },
+//   mounted() {
+//     getBlogCategory()
+//       .then(result => {
+//         console.log(result)
+//       this.categoryList = result
+//     })
+//       .catch(() => {})
+// },
+//   methods: {
+//     handleOk() {},
+//     handleCancel() {}
+//   }
+// }
 </script>
 
 <style scoped>
-.cate-item{
-    padding: 0 12px;
+.cate-item {
+  padding: 0 12px;
+}
+.card-item {
+  background: #ffffff;
+  height: 188px;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 16px;
+}
+.card-item.dashed {
+  border: 1px dashed #e8e8e8;
+}
+.card-item.dashed:hover {
+  border: 1px dashed var(--PC);
+  cursor: pointer;
+  color: var(--PC);
+}
+.card-item-add {
+  text-align: center;
+  line-height: 188px;
+}
+.card-item-info {
+  padding: 16px;
+}
+.item-img {
+  text-align: center;
+}
+.item-img img {
+  height: 60px;
+}
+.clear-float {
+  clear: both;
+}
 
+.card-footer {
+  margin: 6px 1px 0 1px;
+  height: 47px;
+  background: #fafafa;
+  border-top: 1px solid #e8e8e8;
 }
-.card-item{
-    background: #ffffff;
-    height: 188px;
-    border:1px solid #e8e8e8;
-    margin-bottom: 16px
+.footer-edit {
+  width: 50%;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  line-height: 47px;
+  border-right: 1px solid #e8e8e8;
+  color: rgba(0, 0, 0, 0.45);
 }
-.card-item.dashed{
-    border:1px dashed #e8e8e8;
-}
-.card-item.dashed:hover{
-     border:1px dashed var(--PC);
-     cursor: pointer;
-     color: var(--PC);
-}
-.card-item-add{
-    text-align: center;
-    line-height: 188px;
-
-}
-.card-item-info{
-    padding: 16px
-}
-.item-img{
-
-    text-align: center
-}
-.item-img img{
-    height: 60px;
-}
-.clear-float{ clear:both}
-
-.card-footer{
-    margin: 6px 1px 0 1px;
-    height: 47px;
-    background: #fafafa;
-     border-top: 1px solid #e8e8e8;
-}
-.footer-edit{
-    width: 50%;
-     display: inline-block;
-     height: 100%;
-     text-align: center;
-     line-height: 47px;
-     border-right: 1px solid #e8e8e8;
-     color: rgba(0,0,0,.45);
-}
-.footer-delete{
-    width: 50%;
-    display: inline-block;
-    height: 100%;
-    line-height: 47px;
-    text-align: center;
-    color: rgba(0,0,0,.45);
+.footer-delete {
+  width: 50%;
+  display: inline-block;
+  height: 100%;
+  line-height: 47px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
 }
 </style>
