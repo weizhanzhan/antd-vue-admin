@@ -64,16 +64,16 @@
 </template>
 
 <script lang="ts">
-  import { getBlogCategory } from '../../../api/blog';
-  import { Provide, Vue } from 'vue-property-decorator';
+  import { getBlogCategory } from '../../../api/blogs'
+  import { Provide, Vue } from 'vue-property-decorator'
   export default class BlogCateGory extends Vue {
-  @Provide() categoryList: Array<Object> = [];
-  @Provide() visible: Boolean = false;
-  @Provide() confirmLoading: Boolean = false;
+    @Provide() categoryList: Array<Object> = [];
+    @Provide() visible: Boolean = false;
+    @Provide() confirmLoading: Boolean = false;
 
-  created() {
-    getBlogCategory()
-  }
+    created() {
+      getBlogCategory()
+    }
   }
 // export default {
 //   data() {
