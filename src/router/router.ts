@@ -2,14 +2,13 @@ import Vue from 'vue'
 import VueRouter, { RouterOptions } from 'vue-router'
 Vue.use(VueRouter)
 
-export const constantRoutes:RouterOptions['routes'] = [
+export const constantRoutes:any = [
     {
         path: '/login',
         name: 'login',
         component:()=>import('../views/login/index.vue'),
-        meta:{
-            hidden: true
-        }
+        hidden: true
+      
     },
     {
         path: '/',
@@ -62,11 +61,11 @@ export const constantRoutes:RouterOptions['routes'] = [
             }
         }]
     },
-    {
+    // {
 
-        path: '*', hidden: true, name: '404', component:  import('../views/404/index.vue'),
+    //     path: '*', hidden: true, name: '404', component:  import('../views/404/index.vue'),
 
-    }
+    // }
     // {
     //     hidden: true,
     //     path: '/404',
@@ -130,11 +129,11 @@ export const asyncRoutes = [
         ]
 
     },
-    {
-        path: '*',
-        redirect: '/404',
-        hidden: true
-    }
+    // {
+    //     path: '*',
+    //     redirect: '/404',
+    //     hidden: true
+    // }
 ]
 export default new VueRouter({
     routes:constantRoutes,

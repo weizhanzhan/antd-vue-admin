@@ -60,29 +60,29 @@ export const constantRoutes = [
             }
         }]
     },
-    {
-
-        path: '*', hidden: true, name: '404', component: r => require.ensure([], () => r(require('@/views/404')))
-
-    }
     // {
-    //     hidden: true,
-    //     path: '/404',
-    //     component: r => require.ensure([], () => r(require('@/views/layout'))),
-    //     redirect: '/404/index',
-    //     name: '404',
-    //     meta: {
-    //         firstChildName: 'dashBoardIndex'
-    //     },
-    //     children: [{
-    //         path: 'index',
-    //         name: '404',
-    //         component: r => require.ensure([], () => r(require('@/views/404'))),
-    //         meta: {
-    //             title: '404'
-    //         }
-    //     }]
+
+    //     path: '*', hidden: true, name: '404', component: r => require.ensure([], () => r(require('@/views/404')))
+
     // }
+    {
+        hidden: true,
+        path: 'error',
+        component: r => require.ensure([], () => r(require('@/views/layout'))),
+        redirect: '/error/404',
+        name: '404',
+        meta: {
+            firstChildName: 'dashBoardIndex'
+        },
+        children: [{
+            path: 'index',
+            name: '404',
+            component: r => require.ensure([], () => r(require('@/views/404'))),
+            meta: {
+                title: '404'
+            }
+        }]
+    }
 
 ]
 
@@ -124,9 +124,7 @@ export const asyncRoutes = [
                     title: '分类'
                 }
             }
-
         ]
-
     },
     {
         path: '*',

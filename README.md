@@ -5,6 +5,7 @@ vue-cli3 + vue全家桶 + ant-design-vue
 <a href="http://admin.zhanwei.xyz">antd-vue-admin</a>
 
 >喜欢的留个star，希望不要修改数据哦，谢谢
+>ts版单独在antd-vue-ts分支上，不考虑ts请切换master分支
 # 已实现
 <ul>
     <li>用户权限校验</li>

@@ -65,14 +65,25 @@
 
 <script lang="ts">
   import { getBlogCategory } from '../../../api/blogs'
-  import { Provide, Vue } from 'vue-property-decorator'
+  import { Provide, Vue, Component } from 'vue-property-decorator'
+  @Component
   export default class BlogCateGory extends Vue {
     @Provide() categoryList: Array<Object> = [];
     @Provide() visible: Boolean = false;
     @Provide() confirmLoading: Boolean = false;
-
+    @Provide() ModalText:String =''
     created() {
+      console.log('2332')
       getBlogCategory()
+    }
+    mounted() {
+      console.log(1234)
+    }
+    handleCancel(): void {
+
+    }
+    handleOk(): void {
+
     }
   }
 // export default {

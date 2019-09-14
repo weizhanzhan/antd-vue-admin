@@ -34,6 +34,7 @@
     mapGetters
   } from 'vuex'
   export default {
+    components: { subMenu },
     data() {
       return {
         collapsed: false,
@@ -72,17 +73,17 @@
        */
       handleRoutes(routes) {
         let newRoutes = JSON.parse(JSON.stringify(routes))
-        newRoutes = newRoutes.filter(route => !route.meta.hidden)
+        newRoutes = newRoutes.filter(route => !route.hidden)
         for (var i = 0; i < newRoutes.length; i++) {
           const route = newRoutes[i]
-          if (route.children && route.children.length == 1) { newRoutes[i] = route.children[0] } else if (route.children && route.children.length > 1) {
+          if (route.children && route.children.length === 1) { newRoutes[i] = route.children[0] } else if (route.children && route.children.length > 1) {
             newRoutes[i].children = [...this.handleRoutes(route.children)]
           }
         }
         return newRoutes
       }
-    },
-    components: { subMenu }
+    }
+
   }
 </script>
 
