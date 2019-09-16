@@ -25,7 +25,8 @@ import {
     Modal,
     Table,
     Tag,
-    Divider
+    Divider,
+    Switch
 } from 'ant-design-vue'
 
 import {
@@ -68,7 +69,8 @@ const componentList = [
     Modal,
     Table,
     Tag,
-    Divider
+    Divider,
+    Switch
 ]
 
 componentList.forEach(component => {

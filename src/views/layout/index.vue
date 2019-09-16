@@ -5,7 +5,7 @@
       :trigger="null"
       collapsible
     >
-      <side-bar />
+      <side-bar :theme="theme" />
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
@@ -35,7 +35,8 @@
     },
     data() {
       return {
-        collapsed: false
+        collapsed: false,
+        theme: 'dark'
       }
     },
     methods: {

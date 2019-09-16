@@ -3,7 +3,7 @@
     <div class="logo" />
     <a-menu
       mode="inline"
-      theme="dark"
+      :theme="theme"
       :open-keys="openKeys"
       :selected-keys="[$route.name]"
       :inline-collapsed="collapsed"
@@ -35,6 +35,12 @@
   } from 'vuex'
   export default {
     components: { subMenu },
+    props: {
+      theme: {
+        type: String,
+        default: 'dark'
+      }
+    },
     data() {
       return {
         collapsed: false,

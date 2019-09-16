@@ -68,13 +68,16 @@
   import { Provide, Vue, Component } from 'vue-property-decorator'
   @Component
   export default class BlogCateGory extends Vue {
-    @Provide() categoryList: Array<Object> = [];
+    @Provide() categoryList:any = [];
     @Provide() visible: Boolean = false;
     @Provide() confirmLoading: Boolean = false;
     @Provide() ModalText:String =''
     created() {
-      console.log('2332')
       getBlogCategory()
+        .then(result => {
+          this.categoryList = result
+        })
+        .catch(() => {})
     }
     mounted() {
       console.log(1234)
