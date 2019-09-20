@@ -3,6 +3,7 @@
     <div class="logo" />
     <a-menu
       mode="inline"
+      :class="['side_bar_'+theme]"
       :theme="theme"
       :open-keys="openKeys"
       :selected-keys="[$route.name]"
@@ -82,10 +83,15 @@
         newRoutes = newRoutes.filter(route => !route.hidden)
         for (var i = 0; i < newRoutes.length; i++) {
           const route = newRoutes[i]
-          if (route.children && route.children.length === 1) { newRoutes[i] = route.children[0] } else if (route.children && route.children.length > 1) {
+          if (route.children && route.children.length === 1) {
+            if (!route.alwaysShow) {
+              newRoutes[i] = route.children[0]
+            }
+          } else if (route.children && route.children.length > 1) {
             newRoutes[i].children = [...this.handleRoutes(route.children)]
           }
         }
+        console.log(newRoutes)
         return newRoutes
       }
     }

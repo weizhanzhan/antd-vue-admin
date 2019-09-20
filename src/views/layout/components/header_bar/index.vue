@@ -15,7 +15,9 @@
         justify="end"
       >
         <a-col
-          :span="4"
+          :xl="2"
+          :lg="3"
+          :sm="5"
         >
           <a-dropdown>
             <div class="menu-icon">
@@ -44,12 +46,13 @@
             </a-menu>
           </a-dropdown>
         </a-col>
-        <!-- @mouseenter.native="test" -->
-        <!-- @mousemove.native="test" -->
-        <a-col :span="2">
+        <a-col
+          :xl="2"
+          :lg="3"
+          :sm="4"
+        >
           <a-dropdown
             v-model="visible"
-
             overlay-class-name="theme-config"
           >
             <div class="menu-icon">
@@ -60,7 +63,6 @@
                 />
               </span>
             </div>
-
             <div
               slot="overlay"
             >
@@ -86,9 +88,7 @@
                     />
                   </div>
                 </div>
-                <h3
-                  class="w_theme_select_title"
-                >
+                <h3 class="w_theme_select_title">
                   Menu Color
                 </h3>
                 <div>
@@ -103,7 +103,11 @@
             </div>
           </a-dropdown>
         </a-col>
-        <a-col :span="1">
+        <a-col
+          :xl="1"
+          :lg="2"
+          :sm="3"
+        >
           <a-dropdown>
             <div class="menu-icon">
               <span>
@@ -142,7 +146,7 @@
         colors: ['#F5222D', '#FA541C', '#FAAD14', '#13C2C2', '#52C41A', '#1890FF', '#2F54E8', '#722ED1'],
         themeTigger: true,
         activeTheme: '#2F54E8',
-        visible: true
+        visible: false
       }
     },
     computed: { ...mapGetters(['user']) },
@@ -150,7 +154,7 @@
 
       changeCollapsed() { this.$emit('trigger') },
       changeLang({ key }) { this.$bus.$emit('change-lang', key) },
-      changeMenuTheme(val) { console.log(123, val) },
+      changeMenuTheme(val) { this.$emit('changeLeftBar', val) },
       changeTheme(color) {
         this.activeTheme = color
         updateTheme(color)

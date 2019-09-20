@@ -4,6 +4,7 @@
       v-model="collapsed"
       :trigger="null"
       collapsible
+      :class="['side_bar_'+theme]"
     >
       <side-bar :theme="theme" />
     </a-layout-sider>
@@ -12,6 +13,7 @@
         <header-bar
           :collapsed="collapsed"
           @trigger="trigger"
+          @changeLeftBar="changeLeftBar"
         />
       </a-layout-header>
       <a-layout-content>
@@ -42,6 +44,10 @@
     methods: {
       trigger() {
         this.collapsed = !this.collapsed
+      },
+      changeLeftBar(val) {
+        if (val) this.theme = 'dark'
+        else this.theme = 'light'
       }
     }
   }

@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+/**
+ *
+ */
 export const constantRoutes = [
     {
         path: '/login',
@@ -14,9 +17,7 @@ export const constantRoutes = [
         component: r => require.ensure([], () => r(require('@/views/layout'))),
         redirect: '/dashboard',
         name: 'dashBoard',
-        meta: {
-            firstChildName: 'dashBoardIndex'
-        },
+        meta: {},
         children: [{
             path: 'dashboard',
             name: 'dashBoardIndex',
@@ -31,15 +32,14 @@ export const constantRoutes = [
         component: r => require.ensure([], () => r(require('@/views/layout'))),
         redirect: '/components/index',
         name: 'components',
-        meta: {
-            firstChildName: 'dashBoardIndex'
-        },
+        alwaysShow: true,
+        meta: { title: '组件' },
         children: [{
             path: 'index',
             name: 'componentsIndex',
             component: r => require.ensure([], () => r(require('@/views/ant-components'))),
             meta: {
-                title: 'Components'
+                title: 'Antd组件'
             }
         }]
     },
@@ -48,9 +48,7 @@ export const constantRoutes = [
         component: r => require.ensure([], () => r(require('@/views/layout'))),
         redirect: '/account/index',
         name: 'account',
-        meta: {
-            firstChildName: 'dashBoardIndex'
-        },
+        meta: {},
         children: [{
             path: 'index',
             name: 'AccountIndex',
@@ -60,20 +58,13 @@ export const constantRoutes = [
             }
         }]
     },
-    // {
-
-    //     path: '*', hidden: true, name: '404', component: r => require.ensure([], () => r(require('@/views/404')))
-
-    // }
     {
         hidden: true,
         path: 'error',
         component: r => require.ensure([], () => r(require('@/views/layout'))),
         redirect: '/error/404',
         name: '404',
-        meta: {
-            firstChildName: 'dashBoardIndex'
-        },
+        meta: {},
         children: [{
             path: 'index',
             name: '404',
@@ -122,7 +113,19 @@ export const asyncRoutes = [
                 meta: {
                     roles: ['admin'],
                     title: '分类'
-                }
+                },
+                children: [
+                    {
+                        path: 'category',
+                        name: 'blogCategory',
+                        component: r => require.ensure([], () => r(require('@/views/blog/category'))),
+                        meta: {
+                            roles: ['admin'],
+                            title: '分类'
+                        }
+                    }
+
+                ]
             }
         ]
     },
