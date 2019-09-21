@@ -1,6 +1,6 @@
 # antd-vue-admin
-![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/master/public/dark.png)
-![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/master/public/light.png)
+![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/dark.png)
+![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/light.png)
 vue-cli3 + vue全家桶 + ant-design-vue
 # 演示地址
 <a href="http://admin.zhanwei.xyz">antd-vue-admin</a>
@@ -16,7 +16,4 @@ vue-cli3 + vue全家桶 + ant-design-vue
     <li>用户管理</li>
     <li>在线换肤</li>
     <li>加入ts</li>
-    <li>未完待续...</li>
-</ul>
-
-
+    <li
