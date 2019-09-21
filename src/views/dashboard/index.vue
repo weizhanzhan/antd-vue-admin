@@ -255,6 +255,101 @@
               <h5>
                 <span>Total Visit</span>
               </h5>
+              <a-row>
+                <a-col :span="12">
+                  <chartBarItem />
+                </a-col>
+                <a-col
+                  :span="12"
+                  class="statistics-text"
+                >
+                  <div class="statistics-text-value">
+                    <a-icon
+                      type="rise"
+                      class="value-rise"
+                    />
+                    <span class="value-label">5000</span>
+                  </div>
+                </a-col>
+              </a-row>
+            </div>
+          </a-col>
+          <a-col
+            class="w_menu_card"
+          >
+            <div class="w_card_content">
+              <h5>
+                <span>Total Visit</span>
+              </h5>
+              <a-row>
+                <a-col :span="12">
+                  <chartBarItem />
+                </a-col>
+                <a-col
+                  :span="12"
+                  class="statistics-text"
+                >
+                  <div class="statistics-text-value">
+                    <a-icon
+                      type="rise"
+                      class="value-rise"
+                    />
+                    <span class="value-label">5000</span>
+                  </div>
+                </a-col>
+              </a-row>
+            </div>
+          </a-col>
+          <a-col
+            class="w_menu_card"
+          >
+            <div class="w_card_content">
+              <h5>
+                <span>Total Visit</span>
+              </h5>
+              <a-row>
+                <a-col :span="12">
+                  <chartBarItem />
+                </a-col>
+                <a-col
+                  :span="12"
+                  class="statistics-text"
+                >
+                  <div class="statistics-text-value">
+                    <a-icon
+                      type="fall"
+                      class="value-fall"
+                    />
+                    <span class="value-label">5000</span>
+                  </div>
+                </a-col>
+              </a-row>
+            </div>
+          </a-col>
+          <a-col
+            class="w_menu_card"
+          >
+            <div class="w_card_content">
+              <h5>
+                <span>Total Visit</span>
+              </h5>
+              <a-row>
+                <a-col :span="12">
+                  <chartBarItem />
+                </a-col>
+                <a-col
+                  :span="12"
+                  class="statistics-text"
+                >
+                  <div class="statistics-text-value">
+                    <a-icon
+                      type="fall"
+                      class="value-fall"
+                    />
+                    <span class="value-label">5000</span>
+                  </div>
+                </a-col>
+              </a-row>
             </div>
           </a-col>
         </a-row>
@@ -268,7 +363,7 @@
   import IconSlider from '../../components/IconSlider'
   import chartBarItem from '@/components/ChartBar'
   export default {
-    components: { Chart, IconSlider }
+    components: { Chart, IconSlider, chartBarItem }
   }
 </script>
 
@@ -347,6 +442,28 @@
       }
       .dashboard_chart{
           background: #fff;
+      }
+      .statistics-text{
+        text-align: right;
+        height: 65px;
+        position: relative;
+        .statistics-text-value{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          .value-rise{
+            // font-size: 20px
+            color: #096dd9
+          }
+          .value-fall{
+            color: #f5222d
+          }
+          .value-label{
+            font-size: 20px;
+            font-weight: 700;
+            padding-left: 6px
+          }
+        }
       }
 }
 </style>

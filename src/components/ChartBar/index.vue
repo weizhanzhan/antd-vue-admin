@@ -1,7 +1,7 @@
 <template>
   <div
     ref="chart"
-    style="height:100px;width:100%"
+    style="height:100%;width:100%"
   />
 </template>
 
