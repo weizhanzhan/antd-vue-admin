@@ -6,7 +6,10 @@
       collapsible
       :class="['side_bar_'+theme]"
     >
-      <side-bar :theme="theme" />
+      <side-bar
+        :theme="theme"
+        :collapsed="collapsed"
+      />
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">

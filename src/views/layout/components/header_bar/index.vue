@@ -1,6 +1,11 @@
 <template>
   <a-row class="header_bar">
-    <a-col :span="1">
+    <a-col
+      :xl="1"
+      :lg="2"
+      :md="3"
+      :sm="3"
+    >
       <a-icon
         class="trigger"
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
@@ -8,7 +13,10 @@
       />
     </a-col>
     <a-col
-      :span="23"
+      :xl="23"
+      :lg="22"
+      :md="21"
+      :sm="21"
     >
       <a-row
         type="flex"
@@ -17,7 +25,8 @@
         <a-col
           :xl="2"
           :lg="3"
-          :sm="5"
+          :md="5"
+          :sm="10"
         >
           <a-dropdown>
             <div class="menu-icon">
@@ -49,6 +58,7 @@
         <a-col
           :xl="2"
           :lg="3"
+          :md="4"
           :sm="4"
         >
           <a-dropdown
@@ -66,9 +76,7 @@
             <div
               slot="overlay"
             >
-              <div
-                class="w_theme_select"
-              >
+              <div class="w_theme_select">
                 <h3
                   class="w_theme_select_title"
                 >
@@ -106,7 +114,8 @@
         <a-col
           :xl="1"
           :lg="2"
-          :sm="3"
+          :md="3"
+          :sm="4"
         >
           <a-dropdown>
             <div class="menu-icon">

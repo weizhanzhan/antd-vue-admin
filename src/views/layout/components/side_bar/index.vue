@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="logo" />
+    <div :class="['logo',theme+'_bg']">
+      <img
+        src="ico.png"
+      >
+      <span :class="['logo_text',theme,collapsed?'hide':'show']">Vue Admin</span>
+    </div>
     <a-menu
       mode="inline"
       :class="['side_bar_'+theme]"
@@ -40,11 +45,13 @@
       theme: {
         type: String,
         default: 'dark'
+      },
+      collapsed: {
+        type: Boolean
       }
     },
     data() {
       return {
-        collapsed: false,
         openKeys: [this.$route.matched[0].name]
       }
     },
@@ -99,10 +106,36 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .logo {
-        height: 32px;
-        background: rgba(255, 255, 255, .2);
-        margin: 16px;
+      height: 32px;
+      margin: 16px;
+      color: #fff;
+      padding-left: 10px;
+      padding-top: 3px;
+      .logo_text{
+        font-size: 18px;
+        font-weight: 700;
+        vertical-align: top;
+        padding-left: 10px
+      }
+      .logo_text.dark{
+        color: #ffffff
+      }
+      .logo_text.light{
+        color: var(--PC)
+      }
+      .show{
+        opacity: 1;
+        transition: opacity 0.5s ease-in
+      }
+      .hide{ opacity: 0;}
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    .light_bg{
+      background: var(--PCL)
     }
 </style>
