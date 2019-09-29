@@ -8,7 +8,7 @@ var common_t_1 = require("./common-t");
 var ant_design_vue_1 = require("ant-design-vue");
 var router_1 = __importDefault(require("../router/router"));
 var service = axios_1.default.create({
-    //  baseURL: process.env.BASE_API,111.231.59.56 ,192.168.1.115
+    //  baseURL: process.env.BASE_API,111.231.59.56 ,192.168.1.115 http://111.231.59.56:5000/api
     baseURL: 'http://111.231.59.56:5000/api',
     timeout: 10000
 });

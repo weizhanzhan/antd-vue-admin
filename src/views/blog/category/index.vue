@@ -1,115 +1,129 @@
 <template>
-  <div class="container-view no-bg">
-    <a-row>
-      <a-col
-        class="cate-item"
-        :xs="24"
-        :sm="12"
-        :md="12"
-        :lg="12"
-        :xl="6"
-      >
-        <div class="card-item dashed">
-          <div class="card-item-add">
-            <a-icon type="plus" />新增分类
-          </div>
-        </div>
-      </a-col>
-      <a-col
-        v-for="item in categoryList"
-        :key="item._id"
-        class="cate-item"
-        :xs="24"
-        :sm="12"
-        :md="12"
-        :lg="12"
-        :xl="6"
-      >
-        <div class="card-item">
-          <div class="card-item-info">
-            <div>
-              <h2 style="float:left">
-                {{ item.name }}
-              </h2>
-              <h5 style="float:right;color: rgba(0,0,0,.45);">
-                博客数量:{{ item.count }}
-              </h5>
-            </div>
-            <div class="clear-float" />
-            <div class="item-img">
-              <img :src="item.imgUrl">
+  <div
+    class="container-view no-bg"
+  >
+    <a-spin :spinning="spinning">
+      <a-row>
+        <a-col
+          class="cate-item"
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="6"
+        >
+          <div class="card-item dashed">
+            <div
+              class="card-item-add"
+              @click="add"
+            >
+              <a-icon type="plus" />新增分类
             </div>
           </div>
-          <div class="card-footer">
-            <div class="footer-edit">
-              编辑
+        </a-col>
+        <a-col
+          v-for="item in categoryList"
+          :key="item._id"
+          class="cate-item"
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="6"
+        >
+          <div class="card-item">
+            <div class="card-item-info">
+              <div>
+                <h2 style="float:left">
+                  {{ item.name }}
+                </h2>
+                <h5 style="float:right;color: rgba(0,0,0,.45);">
+                  博客数量:{{ item.count }}
+                </h5>
+              </div>
+              <div class="clear-float" />
+              <div class="item-img">
+                <img :src="item.imgUrl">
+              </div>
             </div>
-            <div class="footer-delete">
-              删除
+            <div class="card-footer">
+              <div
+                class="footer-edit"
+                @click="toEdit(item)"
+              >
+                编辑
+              </div>
+              <div class="footer-delete">
+                <a-popconfirm
+                  title="Are you sure？"
+                  ok-text="Yes"
+                  cancel-text="No"
+                  @confirm="toDelete(item._id)"
+                >
+                  删除
+                </a-popconfirm>
+              </div>
             </div>
           </div>
-        </div>
-      </a-col>
-    </a-row>
-    <a-modal
-      title="Title"
-      :visible="visible"
-      :confirm-loading="confirmLoading"
-      @ok="handleOk"
-      @cancel="handleCancel"
-    >
-      <p>{{ ModalText }}</p>
-    </a-modal>
+        </a-col>
+      </a-row>
+      <w-modal
+        ref="modal"
+        @refresh="refresh"
+      />
+    </a-spin>
   </div>
 </template>
 
 <script lang="ts">
-  import { getBlogCategory } from '../../../api/blogs'
+  import { getBlogCategory, delCategory } from '../../../api/blogs'
+  import Modal from './components/modal.vue'
   import { Provide, Vue, Component } from 'vue-property-decorator'
-  @Component
+  @Component({
+    components: {
+       'w-modal': Modal
+    }
+  })
   export default class BlogCateGory extends Vue {
     @Provide() categoryList:any = [];
     @Provide() visible: Boolean = false;
-    @Provide() confirmLoading: Boolean = false;
-    @Provide() ModalText:String =''
-    created() {
-      getBlogCategory()
+    @Provide() spinning:Boolean = false
+
+    mounted() {
+      this.init()
+    }
+    init():void{
+      this.spinning = true
+       getBlogCategory()
         .then(result => {
+          this.spinning = false
           this.categoryList = result
         })
-        .catch(() => {})
+        .catch(() => {
+           this.spinning = false
+        })
     }
-    mounted() {
-      console.log(1234)
+    refresh(): void{
+       this.init()
     }
-    handleCancel(): void {
+    add(): void {
+      const Modal: any = this.$refs.modal
+      Modal.show()
+    }
+    toEdit(item:Object):void{
+      const Modal: any = this.$refs.modal
+      Modal.show(item)
+    }
+    toDelete(id:Number):void{
+      delCategory(id)
+      .then((result:any) => {
+        this.$message.success('删除成功')
+        this.init()
+      }).catch(() => {
 
-    }
-    handleOk(): void {
-
+      })
     }
   }
-// export default {
-//   data() {
-//     return {
-//       categoryList: [],
-//       visible: false,
-//       confirmLoading: false
-//     }
-// },
-//   mounted() {
-//     getBlogCategory()
-//       .then(result => {
-//         console.log(result)
-//       this.categoryList = result
-//     })
-//       .catch(() => {})
-// },
-//   methods: {
-//     handleOk() {},
-//     handleCancel() {}
-//   }
-// }
 </script>
 
 <style scoped>
@@ -121,6 +135,7 @@
   height: 188px;
   border: 1px solid #e8e8e8;
   margin-bottom: 16px;
+  overflow: hidden
 }
 .card-item.dashed {
   border: 1px dashed #e8e8e8;
@@ -139,6 +154,7 @@
 }
 .item-img {
   text-align: center;
+  height: 60px;
 }
 .item-img img {
   height: 60px;
@@ -161,6 +177,7 @@
   line-height: 47px;
   border-right: 1px solid #e8e8e8;
   color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
 }
 .footer-delete {
   width: 50%;
@@ -169,5 +186,6 @@
   line-height: 47px;
   text-align: center;
   color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
 }
 </style>

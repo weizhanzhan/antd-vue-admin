@@ -26,7 +26,9 @@ import {
     Table,
     Tag,
     Divider,
-    Switch
+    Switch,
+    Spin,
+    Upload
 } from 'ant-design-vue'
 
 import {
@@ -70,7 +72,9 @@ const componentList = [
     Table,
     Tag,
     Divider,
-    Switch
+    Switch,
+    Spin,
+    Upload
 ]
 
 componentList.forEach(component => {

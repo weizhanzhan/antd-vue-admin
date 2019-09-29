@@ -2,7 +2,7 @@
   <div>
     <div :class="['logo',theme+'_bg']">
       <img
-        src="ico.png"
+        src="/ico.png"
       >
       <span :class="['logo_text',theme,collapsed?'hide':'show']">Vue Admin</span>
     </div>
