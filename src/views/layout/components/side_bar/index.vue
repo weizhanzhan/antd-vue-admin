@@ -98,7 +98,7 @@
             newRoutes[i].children = [...this.handleRoutes(route.children)]
           }
         }
-        console.log(newRoutes)
+
         return newRoutes
       }
     }

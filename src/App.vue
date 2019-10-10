@@ -26,7 +26,6 @@
 
       // 监听 改变语言
       this.$bus.$on('change-lang', lang => {
-        console.log(lang)
         switch (lang) {
         case 'zh-cn':
           this.locale = zh_CN

@@ -27,17 +27,17 @@
         >
           <a-select
             v-decorator="[
-              'classify',
+              'categoryId',
               {rules: [{ required: true, message: '请选择分类信息!' }]}
             ]"
             placeholder="请选择分类信息"
           >
             <a-select-option
-              v-for="c in classify"
-              :key="c"
-              :value="c"
+              v-for="c in category"
+              :key="c._id"
+              :value="c._id"
             >
-              {{ c }}
+              {{ c.name }}
             </a-select-option>
           </a-select>
         </a-form-item>
@@ -63,7 +63,8 @@
 
 <script>
   import { mavonEditor } from 'mavon-editor'
-  import { uploadBlog, baseToImg, getBlogById, editBlog } from '../../../../api/blog.js'
+
+  import { uploadBlog, baseToImg, getBlogById, editBlog, getBlogCategory } from '../../../../api/blog.js'
   import qs from 'qs'
   import 'mavon-editor/dist/css/index.css'
   export default {
@@ -74,15 +75,13 @@
     data() {
       return {
         form: this.$form.createForm(this),
-        // :toolbars="markdownOption"
-        markdownOption: {
-          // bold: true, // 粗体
-        },
         handbook: '',
-        classify: ['Vue.js', 'React.js', 'Angular', 'Python', 'Javascript', 'Html5', 'NodeJs', 'Css', 'Plan']
+        classify: ['Vue.js', 'React.js', 'Angular', 'Python', 'Javascript', 'Html5', 'NodeJs', 'Css', 'Plan'],
+        category: []
       }
     },
     mounted() {
+      this.getBlogCategory()
       if (this.id) { this.getEditBlog() }
     },
     methods: {
@@ -105,11 +104,12 @@
         const blog = { ...values }
         blog.author = 'zhanwei'
         blog.content = this.handbook
+
         uploadBlog(qs.stringify(blog))
           .then(res => {
-            this.$message.success(res.msg)
+            this.$message.success(res.msg.success)
           })
-          .error(err => {
+          .catch(err => {
             this.$message.error(err)
           })
       },
@@ -123,6 +123,15 @@
           })
           .catch(err => {
             this.$message.error(err)
+          })
+      },
+      getBlogCategory() {
+        getBlogCategory()
+          .then((result) => {
+            console.log(result)
+            this.category = result
+          }).catch(() => {
+
           })
       },
       getEditBlog() {

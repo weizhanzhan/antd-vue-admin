@@ -98,7 +98,6 @@
       e && e.preventDefault()
       this.form.validateFields((err:any, values:any) => {
         if (!err) {
-          console.log('Received values of form: ', values)
           if (this.title === '新增') {
             const { logo: { file }, name } = values
             const fileSplit = file.name.split('.')
@@ -131,7 +130,6 @@
             }).catch(() => {
 
             })
-            console.log(post)
           }
         }
       })
@@ -144,7 +142,6 @@
         }
       }
      normFile(e:any) {
-      console.log('Upload event:', e)
       if (Array.isArray(e)) {
         return e
       }
@@ -165,7 +162,6 @@
           // 将文件以Data URL形式读入页面
           reader.readAsDataURL(file)
           reader.onload = (e) => {
-            console.log(file)
             // var ImgFileSize = reader.result.substring(reader.result.indexOf(",") + 1).length;//截取base64码部分（可选可不选，需要与后台沟通）
             if (AllowImgFileSize !== 0 && AllowImgFileSize < file.size) {
                   alert('上传失败，请上传不大于2M的图片！')
