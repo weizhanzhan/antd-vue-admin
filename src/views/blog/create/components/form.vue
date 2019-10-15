@@ -64,7 +64,7 @@
 <script>
   import { mavonEditor } from 'mavon-editor'
 
-  import { uploadBlog, baseToImg, getBlogById, editBlog, getBlogCategory } from '../../../../api/blog.js'
+  import { uploadBlog, baseToImg, getBlogById, editBlog, getBlogCategory } from '../../../../api/blogs'
   import qs from 'qs'
   import 'mavon-editor/dist/css/index.css'
   export default {

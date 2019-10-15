@@ -15,6 +15,7 @@ export default {
     series: [{
         data: [120, 200, 150, 80, 70, 110, 130],
         type: 'bar',
-        color: '#096dd9'
+        color: '#2f54e8',
+        barWidth: '30%'
     }]
 }

@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts">
-  import { setCategoryBaseToImg, editCategory, addCategory } from '../../../../api/blogs'
+  import { editCategory, addCategory } from '../../../../api/blogs'
   import { Provide, Vue, Component } from 'vue-property-decorator'
 
   @Component
@@ -103,7 +103,7 @@
             const fileSplit = file.name.split('.')
             const type = fileSplit[fileSplit.length - 1]
             addCategory({ base: this.fileBase, fileName: name + '.' + type, name })
-            .then((result) => {
+            .then((result:any) => {
               this.visible = false
               this.$message.success('添加成功')
               this.$emit('refresh')
@@ -123,7 +123,7 @@
               post.fileName = name + '.' + type
             }
             editCategory(this.edit._id, post)
-            .then((result) => {
+            .then((result:any) => {
               this.visible = false
               this.$message.success('编辑成功')
               this.$emit('refresh')

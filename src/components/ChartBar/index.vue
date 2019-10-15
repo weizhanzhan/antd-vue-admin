@@ -19,10 +19,10 @@
       this.chart = echarts.init(this.$refs.chart)
       // 绘制图表
       this.chart.setOption(option)
-
-      window.onresize = () => {
+      window.addEventListener('resize', () => {
         this.chart.resize()
-      }
+      })
+
       setTimeout(() => {
         this.chart.resize()
       }, 0)

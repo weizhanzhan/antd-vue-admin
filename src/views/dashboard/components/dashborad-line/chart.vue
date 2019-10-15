@@ -1,7 +1,7 @@
 <template>
   <div
     ref="chart"
-    style="height:596px;width:100%"
+    style="height:558px;width:100%"
   />
 </template>
 
@@ -20,9 +20,10 @@
       // 绘制图表
       this.chart.setOption(option)
 
-      window.onresize = () => {
+      window.addEventListener('resize', () => {
         this.chart.resize()
-      }
+      })
+
       setTimeout(() => {
         this.chart.resize()
       }, 0)

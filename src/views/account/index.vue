@@ -2,7 +2,7 @@
   <div class="account">
     <a-row>
       <a-col
-        :span="7"
+        :xl="7"
         class="account-item"
       >
         <div class="account-info">
@@ -10,34 +10,22 @@
         </div>
       </a-col>
       <a-col
-        :span="17"
+        :xl="17"
         class="account-item"
       >
-        <div class="account-detail">
-          <button @click="updateTheme('red')">
-            red
-          </button>
-          <button
-            class="test"
-            @click="updateTheme('green')"
-          >
-            GREEN
-          </button>
-        </div>
+        <div class="account-detail" />
       </a-col>
     </a-row>
   </div>
 </template>
 
 <script>
-  import { updateTheme } from '../../utils/common'
+
   import Info from './components/info.vue'
   export default {
     components: { Info },
     methods: {
-      updateTheme(color) {
-        updateTheme(color)
-      }
+
     }
   }
 </script>

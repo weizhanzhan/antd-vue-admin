@@ -1,21 +1,17 @@
 import Vue from 'vue'
-
 import { message } from 'ant-design-vue/es'
 let lessNodesAppended
 
-// event bus
+/**
+ * @description event bus
+ */
 const bus = new Vue()
 
-// 更新主题
+/**
+ * @param {String} primaryColor
+ * @description 更新主题
+ */
 const updateTheme = (primaryColor = '#2F54E8') => {
-  // Don't compile less in production!
-  /* if (process.env.NODE_ENV === 'production') {
-  return;
-} */
-  // Determine if the component is remounted
-//   if (!primaryColor) {
-//     return
-//   }
   const hideMessage = message.loading('正在编译主题！', 0)
   function buildIt() {
     if (!window.less) {
@@ -63,6 +59,7 @@ const updateTheme = (primaryColor = '#2F54E8') => {
     buildIt()
   }
 }
+
 export {
     bus,
     updateTheme

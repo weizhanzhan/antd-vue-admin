@@ -1,15 +1,19 @@
-import Cookies from 'js-cookie'
-
-const TokenKey = 'Admin-Token'
-
-export function getToken() {
-  return Cookies.get(TokenKey)
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var js_cookie_1 = __importDefault(require("js-cookie"));
+var TokenKey = 'Admin-Token';
+function getToken() {
+    return js_cookie_1.default.get(TokenKey);
 }
-
-export function setToken(token) {
-  return Cookies.set(TokenKey, token)
+exports.getToken = getToken;
+function setToken(token) {
+    return js_cookie_1.default.set(TokenKey, token);
 }
-
-export function removeToken() {
-  return Cookies.remove(TokenKey)
+exports.setToken = setToken;
+function removeToken() {
+    return js_cookie_1.default.remove(TokenKey);
 }
+exports.removeToken = removeToken;

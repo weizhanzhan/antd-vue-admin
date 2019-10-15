@@ -68,7 +68,7 @@ export const constantRoutes = [
         children: [{
             path: 'index',
             name: '404',
-            component: r => require.ensure([], () => r(require('@/views/404'))),
+            component: r => require.ensure([], () => r(require('@/views/error/404'))),
             meta: {
                 title: '404'
             }
