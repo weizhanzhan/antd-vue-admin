@@ -139,7 +139,7 @@
           .then(res => {
             this.form.setFieldsValue({
               'title': res.title,
-              'classify': res.classify
+              'categoryId': res.category
             })
             this.handbook = res.content
           })
