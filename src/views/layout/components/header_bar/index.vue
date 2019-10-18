@@ -56,7 +56,7 @@
           </a-dropdown>
         </a-col>
         <a-col
-          :xl="2"
+          :xl="1"
           :lg="3"
           :md="4"
           :sm="4"
