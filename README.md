@@ -90,5 +90,6 @@ npm run build
 
 [在线浏览](http://admin.zhanwei.xyz)
 >账号375786117@qq.com 密码123456
+![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/login.png)
 ![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/dark.png)
 ![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/light.png)

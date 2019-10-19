@@ -22,7 +22,7 @@
           :key="item.name"
         >
           <a-icon type="pie-chart" />
-          <span>{{ item.meta.title }}123</span>
+          <span>{{ item.meta.title }}</span>
         </a-menu-item>
         <sub-menu
           v-else
