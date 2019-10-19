@@ -22,7 +22,7 @@
           :key="item.name"
         >
           <a-icon type="pie-chart" />
-          <span>{{ item.meta.title }}</span>
+          <span>{{ $t(`menu.${ item.meta.title}`) }}</span>
         </a-menu-item>
         <sub-menu
           v-else
@@ -35,12 +35,12 @@
 </template>
 
 <script>
-  import subMenu from './components/sub-menu.vue'
+  import SubMenu from './components/sub-menu.vue'
   import {
     mapGetters
   } from 'vuex'
   export default {
-    components: { subMenu },
+    components: { SubMenu },
     props: {
       theme: {
         type: String,

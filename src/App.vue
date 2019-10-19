@@ -30,9 +30,11 @@
         case 'zh-cn':
           this.locale = zh_CN
           moment.locale('zh-cn')
+          this.$i18n.locale = 'zh'
           break
         case 'en':
           this.locale = null
+          this.$i18n.locale = 'en'
           moment.locale('en')
           break
         default:

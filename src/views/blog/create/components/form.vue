@@ -128,7 +128,6 @@
       getBlogCategory() {
         getBlogCategory()
           .then((result) => {
-            console.log(result)
             this.category = result
           }).catch(() => {
 

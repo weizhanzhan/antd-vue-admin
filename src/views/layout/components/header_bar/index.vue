@@ -28,40 +28,15 @@
           :md="5"
           :sm="10"
         >
-          <a-dropdown>
-            <div class="menu-icon">
-              <span>
-                <a-avatar
-                  :src="user.avatar"
-                  :size="23"
-                />
-                <span class="user_name">&nbsp;&nbsp;{{ user.name }}</span>
-              </span>
-            </div>
-            <a-menu
-              slot="overlay"
-              @click="dropClick"
-            >
-              <a-menu-item key="account">
-                <span rel="noopener noreferrer"><a-icon type="user" />&nbsp;&nbsp;个人中心</span>
-              </a-menu-item>
-              <a-menu-item key="setting">
-                <span rel="noopener noreferrer"><a-icon type="setting" />&nbsp;&nbsp;设置中心</span>
-              </a-menu-item>
-              <a-menu-divider />
-              <a-menu-item key="logout">
-                <span rel="noopener noreferrer"><a-icon type="logout" />&nbsp;&nbsp;退出</span>
-              </a-menu-item>
-            </a-menu>
-          </a-dropdown>
+          <UserConfig />
         </a-col>
         <a-col
           :xl="1"
-          :lg="3"
+          :lg="1"
           :md="4"
           :sm="4"
         >
-          <a-dropdown
+          <!-- <a-dropdown
             v-model="visible"
             overlay-class-name="theme-config"
           >
@@ -109,35 +84,16 @@
                 </div>
               </div>
             </div>
-          </a-dropdown>
+          </a-dropdown> -->
+          <ThemeConfig />
         </a-col>
         <a-col
           :xl="1"
-          :lg="2"
+          :lg="1"
           :md="3"
           :sm="4"
         >
-          <a-dropdown>
-            <div class="menu-icon">
-              <span>
-                <a-icon
-                  type="global"
-                  class="menu-icon-item"
-                />
-              </span>
-            </div>
-            <a-menu
-              slot="overlay"
-              @click="changeLang"
-            >
-              <a-menu-item key="zh-cn">
-                <span rel="noopener noreferrer">中文</span>
-              </a-menu-item>
-              <a-menu-item key="en">
-                <span rel="noopener noreferrer">English</span>
-              </a-menu-item>
-            </a-menu>
-          </a-dropdown>
+          <LangConfig />
         </a-col>
       </a-row>
     </a-col>
@@ -145,42 +101,22 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-  import { updateTheme } from '../../../../utils/common'
-  export default {
 
-    props: { collapsed: { type: Boolean }},
-    data() {
-      return {
-        colors: ['#F5222D', '#FA541C', '#FAAD14', '#13C2C2', '#52C41A', '#1890FF', '#2F54E8', '#722ED1'],
-        themeTigger: true,
-        activeTheme: '#2F54E8',
-        visible: false
-      }
+  import UserConfig from './components/User'
+  import ThemeConfig from './components/Theme'
+  import LangConfig from './components/Lang'
+  export default {
+    components: {
+      UserConfig,
+      ThemeConfig,
+      LangConfig
     },
-    computed: { ...mapGetters(['user']) },
+    props: { collapsed: { type: Boolean }},
     methods: {
 
-      changeCollapsed() { this.$emit('trigger') },
-      changeLang({ key }) { this.$bus.$emit('change-lang', key) },
-      changeMenuTheme(val) { this.$emit('changeLeftBar', val) },
-      changeTheme(color) {
-        this.activeTheme = color
-        updateTheme(color)
-      },
-      dropClick({ key }) {
-        switch (key) {
-        case 'info':
-          this.$router.push('/account/index')
-          break
-        case 'logout':
-          this.$store.dispatch('Logout')
-          window.location.reload()
-          break
-        default:
-          break
-        }
-      }
+      changeCollapsed() { this.$emit('trigger') }
+      // App.vue监听语言改变
+
     }
   }
 </script>

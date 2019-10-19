@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-console.log(Vue)
 /**
  *
  */
@@ -23,7 +22,7 @@ export const constantRoutes = [
             name: 'dashBoardIndex',
             component: r => require.ensure([], () => r(require('@/views/dashboard'))),
             meta: {
-                title: 'Dashboard'
+                title: 'dashboard'
             }
         }]
     },
@@ -33,13 +32,13 @@ export const constantRoutes = [
         redirect: '/components/index',
         name: 'components',
         alwaysShow: true,
-        meta: { title: '组件' },
+        meta: { title: 'component' },
         children: [{
             path: 'index',
             name: 'componentsIndex',
             component: r => require.ensure([], () => r(require('@/views/ant-components'))),
             meta: {
-                title: 'Antd组件'
+                title: 'antdComponent'
             }
         }]
     },
@@ -54,7 +53,7 @@ export const constantRoutes = [
             name: 'AccountIndex',
             component: r => require.ensure([], () => r(require('@/views/account'))),
             meta: {
-                title: '个人中心'
+                title: 'account'
             }
         }]
     },
@@ -85,7 +84,7 @@ export const asyncRoutes = [
         redirect: '/blog/index',
         meta: {
             roles: ['admin', 'user'],
-            title: 'Blog'
+            title: 'blogData'
         },
         children: [
             {
@@ -94,7 +93,7 @@ export const asyncRoutes = [
                 component: r => require.ensure([], () => r(require('@/views/blog'))),
                 meta: {
                     roles: ['admin', 'user'],
-                    title: '博客主页'
+                    title: 'blogList'
                 }
             },
             {
@@ -103,7 +102,7 @@ export const asyncRoutes = [
                 component: r => require.ensure([], () => r(require('@/views/blog/create'))),
                 meta: {
                     roles: ['admin'],
-                    title: '写博客'
+                    title: 'writeBlog'
                 }
             },
             {
@@ -112,7 +111,7 @@ export const asyncRoutes = [
                 component: r => require.ensure([], () => r(require('@/views/blog/category'))),
                 meta: {
                     roles: ['admin'],
-                    title: '分类'
+                    title: 'category'
                 },
                 children: [
                     {
@@ -121,7 +120,7 @@ export const asyncRoutes = [
                         component: r => require.ensure([], () => r(require('@/views/blog/category'))),
                         meta: {
                             roles: ['admin'],
-                            title: '分类'
+                            title: 'category'
                         }
                     }
 

@@ -58,6 +58,7 @@
           </a>
           <a-button
             type="primary"
+            :loading="loading"
             html-type="submit"
             class="login-form-button"
           >
