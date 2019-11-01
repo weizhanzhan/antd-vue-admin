@@ -7,6 +7,7 @@ export default {
     blogData: '博客数据',
     blogList: '博客列表',
     writeBlog: '写博客',
-    category: '博客类别'
+    category: '博客类别',
+    user: '用户管理'
   }
 }

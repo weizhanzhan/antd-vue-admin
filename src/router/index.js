@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Layout from '@/views/layout'
 Vue.use(VueRouter)
 /**
  *
  */
-export const constantRoutes = [
-    {
+export const constantRoutes = [{
         path: '/login',
         name: 'login',
         component: r => require.ensure([], () => r(require('@/views/login'))),
@@ -32,7 +32,9 @@ export const constantRoutes = [
         redirect: '/components/index',
         name: 'components',
         alwaysShow: true,
-        meta: { title: 'component' },
+        meta: {
+            title: 'component'
+        },
         children: [{
             path: 'index',
             name: 'componentsIndex',
@@ -76,18 +78,16 @@ export const constantRoutes = [
 
 ]
 
-export const asyncRoutes = [
-    {
+export const asyncRoutes = [{
         path: '/blog',
-        component: r => require.ensure([], () => r(require('@/views/layout'))),
+        component: Layout,
         name: 'blog',
         redirect: '/blog/index',
         meta: {
             roles: ['admin', 'user'],
             title: 'blogData'
         },
-        children: [
-            {
+        children: [{
                 path: 'index',
                 name: 'blogIndex',
                 component: r => require.ensure([], () => r(require('@/views/blog'))),
@@ -113,8 +113,7 @@ export const asyncRoutes = [
                     roles: ['admin'],
                     title: 'category'
                 },
-                children: [
-                    {
+                children: [{
                         path: 'category',
                         name: 'blogCategory',
                         component: r => require.ensure([], () => r(require('@/views/blog/category'))),
@@ -127,6 +126,24 @@ export const asyncRoutes = [
                 ]
             }
         ]
+    },
+    {
+        path: '/system',
+        component: Layout,
+        name: 'system',
+        redirect: '/system/user',
+        meta: {
+            title: 'system'
+        },
+        children: [{
+            path: 'user',
+            component: r => require.ensure([], () => r(require('@/views/system/user'))),
+            name: 'user',
+            meta: {
+                roles: ['admin', 'user'],
+                title: 'user'
+            }
+        }]
     },
     {
         path: '*',

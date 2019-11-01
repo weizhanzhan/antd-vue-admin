@@ -7,6 +7,7 @@ export default {
     blogData: 'Blog data',
     blogList: 'Blog list',
     writeBlog: 'write blog',
-    category: 'Blog category'
+    category: 'Blog category',
+    user: 'User'
   }
 }
