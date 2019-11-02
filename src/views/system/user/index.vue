@@ -3,59 +3,53 @@
     <div class="wz-body ">
       <FilterForm>
         <a-form
-          class="ant-advanced-search-form"
+          layout="inline"
           :form="form"
           @submit="handleSearch"
         >
-          <a-row :gutter="24">
-            <a-col
-              v-for="i in 10"
-              :key="i"
-              :span="8"
-              :style="{ display: i < count ? 'block' : 'none' }"
-            >
-              <a-form-item :label="`Field ${i}`">
+          <a-row>
+            <a-col :span="6">
+              <a-form-item label="用户名">
                 <a-input
-                  v-decorator="[
-                    `field-${i}`,
-                    {
-                      rules: [
-                        {
-                          required: true,
-                          message: 'Input something!',
-                        },
-                      ],
-                    },
-                  ]"
+                  v-decorator="[ 'username', { rules: [ { message: 'Input something!'}]}]"
                   placeholder="placeholder"
                 />
               </a-form-item>
             </a-col>
-          </a-row>
-          <a-row>
+            <a-col :span="6">
+              <a-form-item label="岗位">
+                <a-input
+                  v-decorator="[ 'station', { rules: [ { message: 'Input something!'}]}]"
+                  placeholder="placeholder"
+                />
+              </a-form-item>
+            </a-col>
+            <a-col :span="6">
+              <a-form-item label="角色">
+                <a-input
+                  v-decorator="[ 'role', { rules: [ { message: 'Input something!'}]}]"
+                  placeholder="placeholder"
+                />
+              </a-form-item>
+            </a-col>
             <a-col
-              :span="24"
-              :style="{ textAlign: 'right' }"
+              :span="6"
+              :style="{textAlign:'right'}"
             >
-              <a-button
-                type="primary"
-                html-type="submit"
-              >
-                Search
-              </a-button>
-              <a-button
-                :style="{ marginLeft: '8px' }"
-                @click="handleReset"
-              >
-                Clear
-              </a-button>
-              <a
-                :style="{ marginLeft: '8px', fontSize: '12px' }"
-                @click="toggle"
-              >
-                Collapse
-                <a-icon :type="expand ? 'up' : 'down'" />
-              </a>
+              <a-form-item class="form-item-btn">
+                <a-button
+                  type="primary"
+                  html-type="submit"
+                >
+                  Search
+                </a-button>
+                <a-button
+                  :style="{ marginLeft: '8px' }"
+                  @click="handleReset"
+                >
+                  Clear
+                </a-button>
+              </a-form-item>
             </a-col>
           </a-row>
         </a-form>
@@ -103,7 +97,7 @@
   created() {
     this.form = this.$form.createForm(this)
   }
-  toggle() {}
+
   handleSearch() {}
   handleReset() {}
   }

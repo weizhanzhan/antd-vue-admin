@@ -9,11 +9,16 @@
         :span="12"
         class="super-btn"
       >
-        高级搜索
+        <!-- 高级搜索 -->
+
+        <a :style="{ marginLeft: '8px', fontSize: '12px' }">
+          高级搜索
+          <a-icon type="down" />
+        </a>
       </a-col>
     </a-row>
     <div class="form-box">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -38,6 +43,9 @@
     .super-btn {
       text-align: right;
     }
+  }
+  .form-box {
+    padding-top: 16px;
   }
 }
 </style>
