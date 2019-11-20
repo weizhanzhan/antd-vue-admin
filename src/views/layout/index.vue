@@ -49,6 +49,7 @@
         this.collapsed = !this.collapsed
       },
       changeLeftBar(val) {
+        console.log(val)
         if (val) this.theme = 'dark'
         else this.theme = 'light'
       }

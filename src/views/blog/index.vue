@@ -58,7 +58,7 @@
   import globalMixin from '@/mixins/global.js'
   import {
     getAllBlogs, deleteBlog
-  } from '@/api/blogs'
+  } from '@/api/blogs.ts'
   const columns = [{
     dataIndex: 'titles',
     key: 'titles',

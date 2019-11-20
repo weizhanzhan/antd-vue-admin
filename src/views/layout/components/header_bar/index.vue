@@ -36,56 +36,7 @@
           :md="4"
           :sm="4"
         >
-          <!-- <a-dropdown
-            v-model="visible"
-            overlay-class-name="theme-config"
-          >
-            <div class="menu-icon">
-              <span>
-                <a-icon
-                  type="bg-colors"
-                  class="menu-icon-item"
-                />
-              </span>
-            </div>
-            <div
-              slot="overlay"
-            >
-              <div class="w_theme_select">
-                <h3
-                  class="w_theme_select_title"
-                >
-                  Theme Color
-                </h3>
-                <div class="w_theme_content">
-                  <div
-                    v-for="color in colors"
-                    :key="color"
-                    class="w_theme_color_block"
-                    :style="[{'background':color}]"
-                    @click="changeTheme(color)"
-                  >
-                    <a-icon
-                      v-if="activeTheme===color"
-                      type="check"
-                    />
-                  </div>
-                </div>
-                <h3 class="w_theme_select_title">
-                  Menu Color
-                </h3>
-                <div>
-                  <a-switch
-                    checked-children="深色"
-                    un-checked-children="浅色"
-                    default-checked
-                    @change="changeMenuTheme"
-                  />
-                </div>
-              </div>
-            </div>
-          </a-dropdown> -->
-          <ThemeConfig />
+          <ThemeConfig v-on="$listeners" />
         </a-col>
         <a-col
           :xl="1"
