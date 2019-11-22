@@ -121,8 +121,7 @@
           .then(res => {
             this.$message.success('修改成功！')
           })
-          .catch(err => {
-            this.$message.error(err)
+          .catch(() => {
           })
       },
       getBlogCategory() {

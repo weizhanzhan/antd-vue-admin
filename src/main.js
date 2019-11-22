@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router/router'
 import store from './store'
 import Zh from './assets/lang/zh'
 import En from './assets/lang/en'
 import VueI18n from 'vue-i18n'
 
 import { bus } from './utils/common'
-
+console.log(router)
 import '@babel/polyfill'
 import './permission'
 import './utils/antd-components.js'

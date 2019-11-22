@@ -8,6 +8,7 @@ export default {
     blogList: 'Blog list',
     writeBlog: 'write blog',
     category: 'Blog category',
-    user: 'User'
+    user: 'User',
+    recycleBin: 'recycle bin'
   }
 }
