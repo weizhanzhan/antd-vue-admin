@@ -34,13 +34,22 @@ import {
 import {
     message
 } from 'ant-design-vue'
+
+// 自己组件
+import WxContainer from '../components/Container'
+const selfConponent = [
+    WxContainer
+]
+selfConponent.forEach(component => {
+    console.log(component)
+    Vue.component(component.name, component)
+})
 const {
     Header,
     Footer,
     Sider,
     Content
 } = Layout
-
 const componentList = [
     Button,
     Layout,

@@ -1,73 +1,75 @@
 <template>
-  <div class="dashboard">
-    <div>
-      <a-row :gutter="16">
-        <MenuCard
-          title="Vue.js"
-          sub-title="Evan You"
-          :count="141000"
-          :value="20"
-        />
-        <MenuCard
-          title="React.js"
-          sub-title="Facebook"
-          :count="131000"
-          :value="50"
-        />
-        <MenuCard
-          title="Angular.js"
-          sub-title="Google"
-          :count="50000"
-          :value="70"
-        />
-        <MenuCard
-          title="Jquery.js"
-          sub-title="John Resig"
-          :count="51000"
-          :value="90"
-        />
-      </a-row>
-    </div>
-    <a-row :gutter="16">
-      <a-col
-        :xs="24"
-        :sm="24"
-        :md="24"
-        :lg="24"
-        :xl="18"
-      >
-        <div class="dashboard_chart">
-          <Chart />
-        </div>
-      </a-col>
-      <a-col
-        :xs="24"
-        :sm="24"
-        :md="24"
-        :lg="24"
-        :xl="6"
-      >
-        <a-row>
-          <TotalItem
-            title="Total Visit"
-            value="5000"
+  <wx-container>
+    <div class="dashboard">
+      <div>
+        <a-row :gutter="16">
+          <MenuCard
+            title="Vue.js"
+            sub-title="Evan You"
+            :count="141000"
+            :value="20"
           />
-          <TotalItem
-            title="Total Visit"
-            value="5000"
+          <MenuCard
+            title="React.js"
+            sub-title="Facebook"
+            :count="131000"
+            :value="50"
           />
-          <TotalItem
-            title="Total Visit"
-            value="5000"
+          <MenuCard
+            title="Angular.js"
+            sub-title="Google"
+            :count="50000"
+            :value="70"
           />
-          <TotalItem
-            title="Total Visit"
-            value="5000"
+          <MenuCard
+            title="Jquery.js"
+            sub-title="John Resig"
+            :count="51000"
+            :value="90"
           />
         </a-row>
-      </a-col>
-    </a-row>
-  </div>
+      </div>
+      <a-row :gutter="16">
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="24"
+          :lg="24"
+          :xl="18"
+        >
+          <div class="dashboard_chart">
+            <Chart />
+          </div>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="24"
+          :lg="24"
+          :xl="6"
+        >
+          <a-row>
+            <TotalItem
+              title="Total Visit"
+              value="5000"
+            />
+            <TotalItem
+              title="Total Visit"
+              value="5000"
+            />
+            <TotalItem
+              title="Total Visit"
+              value="5000"
+            />
+            <TotalItem
+              title="Total Visit"
+              value="5000"
+            />
+          </a-row>
+        </a-col>
+      </a-row>
+    </div>
+  </wx-container>
 </template>
 <script>
   import Chart from './components/dashborad-line/chart'
@@ -81,8 +83,9 @@
     }
   }
 
-</script><style lang="scss">.dashboard {
-  padding: 16px 16px 0 16px;
+</script>
+<style lang="scss">
+.dashboard {
   .w_menu_card {
     margin-bottom: 32px
   }

@@ -10,7 +10,6 @@
         class="super-btn"
       >
         <!-- 高级搜索 -->
-
         <a :style="{ marginLeft: '8px', fontSize: '12px' }">
           高级搜索
           <a-icon type="down" />
@@ -24,7 +23,7 @@
 </template>
 
 <script lang="ts">
-  import { Provide, Vue, Component } from 'vue-property-decorator';
+  import { Provide, Vue, Component } from 'vue-property-decorator'
 @Component({
   components: {}
 })

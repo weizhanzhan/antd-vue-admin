@@ -3,6 +3,7 @@ import VueRouter, {
   RouterOptions
 } from 'vue-router'
 import Layout from '../views/layout/index.vue'
+//alwaysShow 控制当二级菜单只有一级的时候要不要展示 二级菜单 false的话只展示一级的二级菜单 true正常显示
 Vue.use(VueRouter)
 
 export const constantRoutes: any = [{
@@ -54,10 +55,11 @@ export const constantRoutes: any = [{
     redirect: '/account/index',
     name: 'account',
     meta: {
-      firstChildName: 'dashBoardIndex'
+      firstChildName: 'dashBoardIndex',
     },
     children: [{
       path: 'index',
+   
       name: 'AccountIndex',
       component: () => import('../views/account/index.vue'),
       meta: {
@@ -66,19 +68,15 @@ export const constantRoutes: any = [{
     }]
   },
   {
-    hidden: true,
-    path: 'error',
+    path: '*',
+    name: 'error',
+    hidden:true,
     component: Layout,
-    redirect: '/error/404',
-    name: '404',
-    meta: {},
+    redirect: 'error/404',
     children: [{
-      path: 'index',
+      path: 'error/404',
       name: '404',
       component: () => import('../views/error/404/index.vue'),
-      meta: {
-        title: '404'
-      }
     }]
   }
 
@@ -118,16 +116,7 @@ export const asyncRoutes = [{
         meta: {
           roles: ['admin'],
           title: 'category'
-        },
-        children: [{
-          path: 'category',
-          name: 'blogCategory',
-          component: () => import('../views/blog/category/index.vue'),
-          meta: {
-            roles: ['admin'],
-            title: 'category'
-          }
-        }]
+        }
       },
       {
         path: 'recycle-bin',
@@ -145,6 +134,7 @@ export const asyncRoutes = [{
     component: Layout,
     name: 'system',
     redirect: '/system/user',
+    alwaysShow:true,
     meta: {
       title: 'system'
     },
@@ -158,11 +148,7 @@ export const asyncRoutes = [{
       }
     }]
   },
-  {
-    path: '*',
-    redirect: '/404',
-    hidden: true
-  }
+ 
 ]
 export default new VueRouter({
   routes: constantRoutes,

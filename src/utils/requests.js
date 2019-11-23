@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __importDefault(require("axios"));
 var auth_1 = require("./auth");
 var ant_design_vue_1 = require("ant-design-vue");
-var router_1 = __importDefault(require("../router/router"));
+var router_js_1 = __importDefault(require("../router/router.js"));
 var service = axios_1.default.create({
     //  baseURL: process.env.BASE_API,111.231.59.56 ,192.168.1.115 http://111.231.59.56:5000/api
     baseURL: process.env.VUE_APP_BASE_API,
@@ -31,7 +31,7 @@ service.interceptors.response.use(function (response) {
         console.log(Object.values(error.response.data));
         ant_design_vue_1.message.error(Object.values(error.response.data));
         if (error.response.status === 401) {
-            router_1.default.push('/login');
+            router_js_1.default.push('/login');
         }
     }
     return Promise.reject(error);

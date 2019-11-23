@@ -1,6 +1,6 @@
 
 <template>
-  <div class="wz-body ">
+  <div class="wx-body ">
     heelo
   </div>
 </template>

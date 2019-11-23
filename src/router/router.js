@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var vue_1 = __importDefault(require("vue"));
 var vue_router_1 = __importDefault(require("vue-router"));
 var index_vue_1 = __importDefault(require("../views/layout/index.vue"));
+//alwaysShow 控制当二级菜单只有一级的时候要不要展示 二级菜单 false的话只展示一级的二级菜单 true正常显示
 vue_1.default.use(vue_router_1.default);
 exports.constantRoutes = [{
         path: '/login',
@@ -62,7 +63,7 @@ exports.constantRoutes = [{
         redirect: '/account/index',
         name: 'account',
         meta: {
-            firstChildName: 'dashBoardIndex'
+            firstChildName: 'dashBoardIndex',
         },
         children: [{
                 path: 'index',
@@ -74,19 +75,15 @@ exports.constantRoutes = [{
             }]
     },
     {
+        path: '*',
+        name: 'error',
         hidden: true,
-        path: 'error',
         component: index_vue_1.default,
-        redirect: '/error/404',
-        name: '404',
-        meta: {},
+        redirect: 'error/404',
         children: [{
-                path: 'index',
+                path: 'error/404',
                 name: '404',
                 component: function () { return Promise.resolve().then(function () { return __importStar(require('../views/error/404/index.vue')); }); },
-                meta: {
-                    title: '404'
-                }
             }]
     }
 ];
@@ -124,16 +121,7 @@ exports.asyncRoutes = [{
                 meta: {
                     roles: ['admin'],
                     title: 'category'
-                },
-                children: [{
-                        path: 'category',
-                        name: 'blogCategory',
-                        component: function () { return Promise.resolve().then(function () { return __importStar(require('../views/blog/category/index.vue')); }); },
-                        meta: {
-                            roles: ['admin'],
-                            title: 'category'
-                        }
-                    }]
+                }
             },
             {
                 path: 'recycle-bin',
@@ -151,6 +139,7 @@ exports.asyncRoutes = [{
         component: index_vue_1.default,
         name: 'system',
         redirect: '/system/user',
+        alwaysShow: true,
         meta: {
             title: 'system'
         },
@@ -164,11 +153,6 @@ exports.asyncRoutes = [{
                 }
             }]
     },
-    {
-        path: '*',
-        redirect: '/404',
-        hidden: true
-    }
 ];
 exports.default = new vue_router_1.default({
     routes: exports.constantRoutes,

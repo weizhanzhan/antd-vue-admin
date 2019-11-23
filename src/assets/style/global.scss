@@ -1,36 +1,35 @@
 .container-view {
-    margin: 16px;
-    padding: 24px;
-    background: #fff;
-    min-height: 280px;
+  margin: 16px;
+  padding: 24px;
+  background: #fff;
+  min-height: 280px;
 }
 
 .container-view.no-bg {
-    background: transparent
+  background: transparent
 }
 
 .side_bar_dark {
-    background: #010101 !important
+  background: #010101 !important
 }
 
 .side_bar_light {
-    background: #fff !important
+  background: #fff !important
 }
 
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
-    background: #232323 !important
+  background: #232323 !important
 }
 
-.wz-body {
-    margin: 16px;
-    padding: 16px;
-    background: #fff;
+.wx-body {
+  padding: 16px;
+  background: #fff;
 }
 
 .m_t_16 {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 .form-item-btn {
-    margin-right: 0 !important;
+  margin-right: 0 !important;
 }

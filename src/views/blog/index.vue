@@ -1,58 +1,60 @@
 <template>
-  <div class="container-view">
-    <a-table
-      :columns="columns"
-      :data-source="datas"
-      :loading="loading"
-      :pagination="false"
-    >
-      <a
-        slot="titles"
-        slot-scope="text"
-        href="javascript:;"
-      >{{ text }}</a>
-      <span slot="customTitle">
-        <a-icon type="smile-o" /> Title</span>
-      <span
-        slot="likesCount"
-        slot-scope="likesCount"
-      >{{ likesCount }}</span>
-      <span
-        slot="tags"
-        slot-scope="tags"
+  <wx-container>
+    <div class="wx-body">
+      <a-table
+        :columns="columns"
+        :data-source="datas"
+        :loading="loading"
+        :pagination="false"
       >
-        <a-tag
-          v-for="tag in tags"
-          :key="tag"
-          color="blue"
-        >{{ tag }}</a-tag>
-      </span>
-      <span
-        slot="action"
-        slot-scope="text, record"
-      >
-        <!--slot-scope="text, record" text,record 是一列的数据 -->
         <a
+          slot="titles"
+          slot-scope="text"
           href="javascript:;"
-          @click="onEdit(record)"
-        >Edit</a>
-        <a-divider type="vertical" />
-        <a-popconfirm
-          title="Sure to delete?"
-          @confirm="() => onDelete(record.key)"
+        >{{ text }}</a>
+        <span slot="customTitle">
+          <a-icon type="smile-o" /> Title</span>
+        <span
+          slot="likesCount"
+          slot-scope="likesCount"
+        >{{ likesCount }}</span>
+        <span
+          slot="tags"
+          slot-scope="tags"
         >
-          <a href="javascript:;">Delete</a>
-        </a-popconfirm>
-      </span>
-    </a-table>
-    <div style="text-align:right;padding-top:10px">
-      <a-pagination
-        v-model="nowpage"
-        :total="total"
-        @change="pageChange"
-      />
+          <a-tag
+            v-for="tag in tags"
+            :key="tag"
+            color="blue"
+          >{{ tag }}</a-tag>
+        </span>
+        <span
+          slot="action"
+          slot-scope="text, record"
+        >
+          <!--slot-scope="text, record" text,record 是一列的数据 -->
+          <a
+            href="javascript:;"
+            @click="onEdit(record)"
+          >Edit</a>
+          <a-divider type="vertical" />
+          <a-popconfirm
+            title="Sure to delete?"
+            @confirm="() => onDelete(record.key)"
+          >
+            <a href="javascript:;">Delete</a>
+          </a-popconfirm>
+        </span>
+      </a-table>
+      <div style="text-align:right;padding-top:10px">
+        <a-pagination
+          v-model="nowpage"
+          :total="total"
+          @change="pageChange"
+        />
+      </div>
     </div>
-  </div>
+  </wx-container>
 </template>
 <script>
   import globalMixin from '@/mixins/global.js'

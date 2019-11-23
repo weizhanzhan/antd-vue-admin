@@ -7,11 +7,11 @@
       <span
         v-if="index==levelList.length-1"
         class="no-redirect"
-      >{{ item.meta.title }}</span>
+      >{{ $t(`menu.${item.meta.title}`) }} </span>
       <a
         v-else
         @click.prevent="handleLink(item)"
-      >{{ item.meta.title }}</a>
+      >{{ $t(`menu.${item.meta.title}`) }}</a>
     </a-breadcrumb-item>
   </a-breadcrumb>
 </template>
@@ -37,7 +37,7 @@
         let matched = this.$route.matched.filter(item => item.name)
         const first = matched[0]
         if (first && first.name !== 'dashBoard') {
-          matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(matched)
+          matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched)
         }
         this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
       },

@@ -10,7 +10,7 @@ import { bus } from './utils/common'
 console.log(router)
 import '@babel/polyfill'
 import './permission'
-import './utils/antd-components.js'
+import './utils/components.js'
 import './assets/style/global.scss'
 
 Vue.prototype.$bus = bus

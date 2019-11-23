@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div class="wz-body ">
+  <wx-container>
+    <div class="wx-body">
       <FilterForm>
         <a-form
           layout="inline"
           :form="form"
-          @submit="handleSearch"
+          @submit.prevent="handleSearch"
         >
           <a-row>
             <a-col :span="6">
@@ -55,7 +55,7 @@
         </a-form>
       </FilterForm>
     </div>
-    <div class="wz-body m_t_16">
+    <div class="wx-body m_t_16">
       <a-row>
         <a-col :span="12">
           数据列表
@@ -78,12 +78,12 @@
         </a-col>
       </a-row>
     </div>
-  </div>
+  </wx-container>
 </template>
 
 <script lang="ts">
-  import FilterForm from '../../../components/FilterForm/index.vue';
-  import { Provide, Vue, Component } from 'vue-property-decorator';
+  import FilterForm from '../../../components/FilterForm/index.vue'
+  import { Provide, Vue, Component } from 'vue-property-decorator'
 @Component({
   components: {
     FilterForm: FilterForm
@@ -98,7 +98,9 @@
     this.form = this.$form.createForm(this)
   }
 
-  handleSearch() {}
+  handleSearch() {
+    console.log(2323)
+  }
   handleReset() {}
   }
 </script>

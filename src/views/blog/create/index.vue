@@ -1,7 +1,9 @@
 <template>
-  <div class="container-view">
-    <Form :id="$route.query.id" />
-  </div>
+  <wx-container>
+    <div class="wx-body">
+      <Form :id="$route.query.id" />
+    </div>
+  </wx-container>
 </template>
 
 <script>

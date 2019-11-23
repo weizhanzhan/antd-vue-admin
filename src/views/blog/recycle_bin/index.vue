@@ -1,8 +1,15 @@
 
 <template>
-  <div class="wz-body ">
-    回收站
-  </div>
+  <wx-container>
+    <template v-slot:header>
+      <div style="color:rgba(0, 0, 0, 0.45)">
+        <a-icon type="bell" />  这里展示的是删除后的博客列表
+      </div>
+    </template>
+    <div class="wx-body ">
+      回收站
+    </div>
+  </wx-container>
 </template>
 
 <script lang="ts">

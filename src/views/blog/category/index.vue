@@ -1,78 +1,78 @@
 <template>
-  <div
-    class="container-view no-bg"
-  >
-    <a-spin :spinning="spinning">
-      <a-row>
-        <a-col
-          class="cate-item"
-          :xs="24"
-          :sm="12"
-          :md="12"
-          :lg="12"
-          :xl="6"
-        >
-          <div class="card-item dashed">
-            <div
-              class="card-item-add"
-              @click="add"
-            >
-              <a-icon type="plus" />新增分类
-            </div>
-          </div>
-        </a-col>
-        <a-col
-          v-for="item in categoryList"
-          :key="item._id"
-          class="cate-item"
-          :xs="24"
-          :sm="12"
-          :md="12"
-          :lg="12"
-          :xl="6"
-        >
-          <div class="card-item">
-            <div class="card-item-info">
-              <div>
-                <h2 style="float:left">
-                  {{ item.name }}
-                </h2>
-                <h5 style="float:right;color: rgba(0,0,0,.45);">
-                  博客数量:{{ item.count }}
-                </h5>
-              </div>
-              <div class="clear-float" />
-              <div class="item-img">
-                <img :src="item.imgUrl">
-              </div>
-            </div>
-            <div class="card-footer">
+  <wx-container>
+    <div>
+      <a-spin :spinning="spinning">
+        <a-row>
+          <a-col
+            class="cate-item"
+            :xs="24"
+            :sm="12"
+            :md="12"
+            :lg="12"
+            :xl="6"
+          >
+            <div class="card-item dashed">
               <div
-                class="footer-edit"
-                @click="toEdit(item)"
+                class="card-item-add"
+                @click="add"
               >
-                编辑
-              </div>
-              <div class="footer-delete">
-                <a-popconfirm
-                  title="Are you sure？"
-                  ok-text="Yes"
-                  cancel-text="No"
-                  @confirm="toDelete(item._id)"
-                >
-                  删除
-                </a-popconfirm>
+                <a-icon type="plus" />新增分类
               </div>
             </div>
-          </div>
-        </a-col>
-      </a-row>
-      <w-modal
-        ref="modal"
-        @refresh="refresh"
-      />
-    </a-spin>
-  </div>
+          </a-col>
+          <a-col
+            v-for="item in categoryList"
+            :key="item._id"
+            class="cate-item"
+            :xs="24"
+            :sm="12"
+            :md="12"
+            :lg="12"
+            :xl="6"
+          >
+            <div class="card-item">
+              <div class="card-item-info">
+                <div>
+                  <h2 style="float:left">
+                    {{ item.name }}
+                  </h2>
+                  <h5 style="float:right;color: rgba(0,0,0,.45);">
+                    博客数量:{{ item.count }}
+                  </h5>
+                </div>
+                <div class="clear-float" />
+                <div class="item-img">
+                  <img :src="item.imgUrl">
+                </div>
+              </div>
+              <div class="card-footer">
+                <div
+                  class="footer-edit"
+                  @click="toEdit(item)"
+                >
+                  编辑
+                </div>
+                <div class="footer-delete">
+                  <a-popconfirm
+                    title="Are you sure？"
+                    ok-text="Yes"
+                    cancel-text="No"
+                    @confirm="toDelete(item._id)"
+                  >
+                    删除
+                  </a-popconfirm>
+                </div>
+              </div>
+            </div>
+          </a-col>
+        </a-row>
+        <w-modal
+          ref="modal"
+          @refresh="refresh"
+        />
+      </a-spin>
+    </div>
+  </wx-container>
 </template>
 
 <script lang="ts">
