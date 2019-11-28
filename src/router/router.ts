@@ -67,19 +67,6 @@ export const constantRoutes: any = [{
       }
     }]
   },
-  {
-    path: '*',
-    name: 'error',
-    hidden:true,
-    component: Layout,
-    redirect: 'error/404',
-    children: [{
-      path: 'error/404',
-      name: '404',
-      component: () => import('../views/error/404/index.vue'),
-    }]
-  }
-
 ]
 
 export const asyncRoutes = [{
@@ -148,6 +135,18 @@ export const asyncRoutes = [{
       }
     }]
   },
+  {
+    path: '*',
+    name: 'error',
+    hidden:true,
+    component: Layout,
+    redirect: 'error/404',
+    children: [{
+      path: 'error/404',
+      name: '404',
+      component: () => import('../views/error/404/index.vue'),
+    }]
+  }
  
 ]
 export default new VueRouter({

@@ -74,18 +74,6 @@ exports.constantRoutes = [{
                 }
             }]
     },
-    {
-        path: '*',
-        name: 'error',
-        hidden: true,
-        component: index_vue_1.default,
-        redirect: 'error/404',
-        children: [{
-                path: 'error/404',
-                name: '404',
-                component: function () { return Promise.resolve().then(function () { return __importStar(require('../views/error/404/index.vue')); }); },
-            }]
-    }
 ];
 exports.asyncRoutes = [{
         path: '/blog',
@@ -153,6 +141,18 @@ exports.asyncRoutes = [{
                 }
             }]
     },
+    {
+        path: '*',
+        name: 'error',
+        hidden: true,
+        component: index_vue_1.default,
+        redirect: 'error/404',
+        children: [{
+                path: 'error/404',
+                name: '404',
+                component: function () { return Promise.resolve().then(function () { return __importStar(require('../views/error/404/index.vue')); }); },
+            }]
+    }
 ];
 exports.default = new vue_router_1.default({
     routes: exports.constantRoutes,

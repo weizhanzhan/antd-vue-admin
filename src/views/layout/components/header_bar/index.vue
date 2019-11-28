@@ -1,9 +1,9 @@
 <template>
   <a-row class="header_bar">
     <a-col
-      :xl="5"
-      :lg="6"
-      :md="7"
+      :xl="10"
+      :lg="10"
+      :md="10"
       :sm="12"
     >
       <a-icon
@@ -15,9 +15,9 @@
       <breadCrumb class="head-bread" />
     </a-col>
     <a-col
-      :xl="19"
-      :lg="18"
-      :md="17"
+      :xl="14"
+      :lg="14"
+      :md="14"
       :sm="12"
     >
       <a-row
