@@ -41,7 +41,6 @@ const selfConponent = [
     WxContainer
 ]
 selfConponent.forEach(component => {
-    console.log(component)
     Vue.component(component.name, component)
 })
 const {

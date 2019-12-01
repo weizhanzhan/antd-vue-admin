@@ -14,10 +14,8 @@
 
 <script>
   export default {
-    name: 'WxContainer',
-    mounted() {
-      console.log(this)
-    }
+    name: 'WxContainer'
+
   }
 </script>
 

@@ -22,11 +22,12 @@
           slot="tags"
           slot-scope="tags"
         >
+
           <a-tag
-            v-for="tag in tags"
-            :key="tag"
+            v-if="tags"
+            :key="tags._id"
             color="blue"
-          >{{ tag }}</a-tag>
+          >{{ tags.name ||'暂无' }}</a-tag>
         </span>
         <span
           slot="action"
@@ -127,7 +128,7 @@
               views: blog.views,
               likes: blog.likes,
               address: blog.date,
-              tags: [blog.classify]
+              tags: blog.category
             }
           })
         }).catch(() => {

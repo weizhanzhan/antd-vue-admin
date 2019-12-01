@@ -7,7 +7,7 @@ import En from './assets/lang/en'
 import VueI18n from 'vue-i18n'
 
 import { bus } from './utils/common'
-console.log(router)
+
 import '@babel/polyfill'
 import './permission'
 import './utils/components.js'

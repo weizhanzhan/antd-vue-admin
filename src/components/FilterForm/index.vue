@@ -10,7 +10,10 @@
         class="super-btn"
       >
         <!-- 高级搜索 -->
-        <a :style="{ marginLeft: '8px', fontSize: '12px' }">
+        <a
+          :style="{ marginLeft: '8px', fontSize: '12px' }"
+          @click.prevent="loadMore"
+        >
           高级搜索
           <a-icon type="down" />
         </a>
@@ -23,14 +26,25 @@
 </template>
 
 <script lang="ts">
-  import { Provide, Vue, Component } from 'vue-property-decorator'
+  import { Provide, Vue, Component, Prop } from 'vue-property-decorator'
 @Component({
   components: {}
 })
   export default class BlogCateGory extends Vue {
+          @Prop({
+            type: Boolean, // 父组件传递给子组件的数据类型
+            required: false, // 是否必填
+            default: ' ' // 默认值， 如果传入的是 Object，则要 default: ()=>({}) 参数为函数
+        }) value !: Boolean;
+
   @Provide() categoryList: any = [];
   @Provide() visible: Boolean = false;
   @Provide() spinning: Boolean = false;
+
+  loadMore() {
+    this.$emit('input', !this.value)
+    this.$emit('loadmore')
+  }
   }
 </script>
 

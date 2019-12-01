@@ -1,5 +1,27 @@
 <template>
-  <a-row class="header_bar">
+  <header class="header">
+    <div class="header-left">
+      <a-icon
+        class="trigger"
+        :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+        @click="changeCollapsed"
+      />
+
+      <breadCrumb class="head-bread" />
+    </div>
+    <ul class="menu">
+      <li class="user">
+        <UserConfig />
+      </li>
+      <li class="theme">
+        <ThemeConfig v-on="$listeners" />
+      </li>
+      <li class="lang">
+        <LangConfig />
+      </li>
+    </ul>
+  </header>
+  <!-- <a-row class="header_bar">
     <a-col
       :xl="10"
       :lg="10"
@@ -53,7 +75,7 @@
         </a-col>
       </a-row>
     </a-col>
-  </a-row>
+  </a-row> -->
 </template>
 
 <script>
@@ -140,5 +162,40 @@
 .ant-dropdown:before {
   //为了解决 无法点击自定义的东西
   z-index: -1;
+}
+.header{
+  position: relative;
+  .header-left{
+    padding-left: 24px;
+    .head-bread{
+      position: absolute;
+      top: 20px;
+      left: 60px;
+    }
+  }
+  .menu{
+    position: absolute;
+    right: 0;
+    top: 0;
+    list-style: none;
+    li{
+       display: inline-block;
+       text-align: center;
+      //  padding: 0 20px;
+      // width: 100px;
+        &:hover{
+          background: #fafafa
+        }
+    }
+    .user{
+      min-width: 100px;
+    }
+    .theme{
+      width: 50px;
+    }
+    .lang{
+      width: 50px;
+    }
+  }
 }
 </style>

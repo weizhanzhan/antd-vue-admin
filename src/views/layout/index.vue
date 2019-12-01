@@ -1,14 +1,23 @@
 <template>
   <a-layout style="min-height: 100vh;">
-    <a-layout-sider v-model="collapsed"
-:trigger="null" collapsible :class="['side_bar_'+theme]">
-      <side-bar :theme="theme"
-:collapsed="collapsed" />
+    <a-layout-sider
+      v-model="collapsed"
+      :trigger="null"
+      collapsible
+      :class="['side_bar_'+theme]"
+    >
+      <side-bar
+        :theme="theme"
+        :collapsed="collapsed"
+      />
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
-        <header-bar :collapsed="collapsed"
-@trigger="trigger" @changeLeftBar="changeLeftBar" />
+        <header-bar
+          :collapsed="collapsed"
+          @trigger="trigger"
+          @changeLeftBar="changeLeftBar"
+        />
       </a-layout-header>
       <a-layout-content>
         <router-view />

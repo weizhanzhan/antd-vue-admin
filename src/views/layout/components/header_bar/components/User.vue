@@ -38,7 +38,7 @@
   export default class UserConfig extends Vue {
     dropClick(item:any) :void{
       const key = item.key
-      console.log(key)
+
       switch (key) {
       case 'account':
         this.$router.push('/account/index')
