@@ -43,9 +43,16 @@ export const constantRoutes: any = [{
     children: [{
       path: 'index',
       name: 'componentsIndex',
-      component: () => import('../views/ant-components/index.vue'),
+      component: () => import('../views/components/ant-components/index.vue'),
       meta: {
         title: 'antdComponent'
+      }
+    },{
+      path: 'chart',
+      name: 'chart',
+      component: () => import('../views/components/chart/index.vue'),
+      meta: {
+        title: 'chart'
       }
     }]
   },

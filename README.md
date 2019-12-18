@@ -90,6 +90,6 @@ npm run build
 
 [在线浏览](http://test1.zlpfs.com) 此链接可能无效头部链接可以访问
 >账号375786117@qq.com 密码123456
-![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/login.png)
-![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/dark.png)
-![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/light.png)
+![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/demo.gif)
+<!-- ![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/dark.png)
+![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/light.png) -->

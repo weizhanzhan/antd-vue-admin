@@ -51,9 +51,16 @@ exports.constantRoutes = [{
         children: [{
                 path: 'index',
                 name: 'componentsIndex',
-                component: function () { return Promise.resolve().then(function () { return __importStar(require('../views/ant-components/index.vue')); }); },
+                component: function () { return Promise.resolve().then(function () { return __importStar(require('../views/components/ant-components/index.vue')); }); },
                 meta: {
                     title: 'antdComponent'
+                }
+            }, {
+                path: 'chart',
+                name: 'chart',
+                component: function () { return Promise.resolve().then(function () { return __importStar(require('../views/components/chart/index.vue')); }); },
+                meta: {
+                    title: 'chart'
                 }
             }]
     },

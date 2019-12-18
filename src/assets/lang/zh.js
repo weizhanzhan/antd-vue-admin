@@ -10,6 +10,7 @@ export default {
     category: '博客类别',
     system: '系统数据管理',
     user: '用户管理',
-    recycleBin: '回收站'
+    recycleBin: '回收站',
+    chart: 'Chart'
   }
 }

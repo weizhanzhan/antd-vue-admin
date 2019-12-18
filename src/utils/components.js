@@ -25,6 +25,7 @@ import {
     Modal,
     Table,
     Tag,
+    Tabs,
     Divider,
     Switch,
     Spin,
@@ -82,7 +83,8 @@ const componentList = [
     Divider,
     Switch,
     Spin,
-    Upload
+    Upload,
+    Tabs
 ]
 
 componentList.forEach(component => {

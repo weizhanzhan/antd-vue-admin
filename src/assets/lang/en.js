@@ -10,6 +10,7 @@ export default {
     category: 'Blog category',
     system: 'system',
     user: 'User',
-    recycleBin: 'recycle bin'
+    recycleBin: 'recycle bin',
+    chart: 'Chart'
   }
 }
