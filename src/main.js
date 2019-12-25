@@ -17,7 +17,7 @@ Vue.prototype.$bus = bus
 Vue.config.productionTip = false
 
 Vue.use(VueI18n)
-
+console.log('%c测试打包去除console', 'color: blue',)
 const i18n = new VueI18n({
   locale: 'zh', // 语言标识
   messages: {
