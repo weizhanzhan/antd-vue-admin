@@ -63,7 +63,7 @@
 @Component({
   components: {}
 })
-  export default class BlogCateGory extends Vue {
+  export default class WxModal extends Vue {
    @Provide() visible: Boolean = false
     @Provide() confirmLoading: Boolean = false;
     @Provide() form: any = null

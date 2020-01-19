@@ -65,11 +65,14 @@
               <a-button
                 type="primary"
                 icon="plus"
+                @click="handleAddClick"
               >
                 新增
               </a-button>
                  &nbsp;
-              <a-button icon="download">
+              <a-button
+                icon="download"
+              >
                 导出
               </a-button>
             </div>
@@ -77,21 +80,30 @@
         </a-col>
       </a-row>
     </a-form>
+    <wx-modal ref="modal" />
   </div>
 </template>
 
 <script lang="ts">
+  import WxModal from './modal.vue'
   import { Provide, Vue, Component } from 'vue-property-decorator'
-@Component({
-  components: {}
-})
-  export default class BlogCateGory extends Vue {
-  @Provide() categoryList: any = [];
-  @Provide() visible: Boolean = false;
-  @Provide() spinning: Boolean = false;
-  handleReset() {
 
-  }
+  @Component({
+    components: { WxModal }
+  })
+  export default class BlogCateGory extends Vue {
+    @Provide() categoryList: any = [];
+    @Provide() visible: Boolean = false;
+    @Provide() spinning: Boolean = false;
+
+    
+    handleReset() {
+
+    }
+    handleAddClick() {
+      const modal = this.$refs.modal as WxModal
+      modal.show({})
+    }
   }
 </script>
 
