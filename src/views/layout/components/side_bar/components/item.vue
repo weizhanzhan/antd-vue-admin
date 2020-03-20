@@ -37,7 +37,6 @@
       }
     },
     computed: {
-
       isHidden() {
         return this.route.hidden
       }
