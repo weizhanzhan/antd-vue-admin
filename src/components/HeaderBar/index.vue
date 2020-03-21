@@ -2,12 +2,14 @@
 <template>
   <header class="header">
     <div class="header-left">
-      <a-icon
+      <module-menu />
+
+      <!-- <a-icon
         class="trigger"
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
         @click="changeCollapsed"
       />
-      <bread-crumb class="head-bread" />
+      <bread-crumb class="head-bread" /> -->
     </div>
     <ul class="menu">
       <li class="user">
@@ -27,8 +29,9 @@
   import BreadCrumb from '../BreadCrumb.vue'
   import UserMenu from '../HeaderMenu/User.vue'
   import ThemeMenu from '../HeaderMenu/Theme.vue'
+  import ModuleMenu from '../HeaderMenu/Modules.vue'
   import LangMenu from '../HeaderMenu/Lang.vue'
-  import { Icon } from 'ant-design-vue'
+  import { Icon, Divider } from 'ant-design-vue'
   import { Vue, Component, Prop } from 'vue-property-decorator'
   @Component({
     components: {
@@ -36,7 +39,9 @@
       'bread-crumb': BreadCrumb,
       'user-menu': UserMenu,
       'theme-menu': ThemeMenu,
-      'lang-menu': LangMenu
+      'lang-menu': LangMenu,
+      'module-menu': ModuleMenu,
+      'a-divider': Divider
     }
   })
   export default class Template extends Vue {
@@ -53,7 +58,7 @@
   position: relative;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
   .header-left{
-    padding-left: 24px;
+    padding-left: 0;
     .trigger {
       font-size: 18px;
       line-height: 64px;

@@ -12,7 +12,7 @@
       />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
+      <a-layout-header style="background: #fff; padding: 0;">
         <header-bar
           :collapsed="collapsed"
           @trigger="trigger"
