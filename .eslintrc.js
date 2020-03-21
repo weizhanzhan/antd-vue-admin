@@ -1,61 +1,64 @@
 module.exports = {
-    root: true,
-    env: {
-        node: true
-    },
-    extends: [
-        'plugin:vue/recommended',
-        'plugin:vue/essential'
-    ],
-    rules: {
-        'vue/require-default-prop': 'off',
-        'no-console': 'off',
-        'vue/v-bind-style': 'off',
-        'vue/v-on-style': 'off',
-        'no-unused-vars': 'off',
-        'vue/no-v-html': 'off',
-        'vue/script-indent':['error',2,{'baseIndent':1}],
-        'arrow-spacing': [2, {
-            'before': true,
-            'after': true
-        }],
-        'block-spacing': [2, 'always'],
-        'brace-style': [2, '1tbs', {
-            'allowSingleLine': true
-        }],
-        'camelcase': [0, {
-        'properties': 'always'
-        }],
-        'comma-dangle': [2, 'never'],
-        'comma-spacing': [2, {
-            'before': false,
-            'after': true
-        }],
-        'comma-style': [2, 'last'],
-        'constructor-super': 2,
-        'curly': [2, 'multi-line'],
-        'dot-location': [2, 'property'],
-        'eol-last': 2,
-        'eqeqeq': [2, 'allow-null'],
-        'generator-star-spacing': [2, {
-            'before': true,
-            'after': true
-        }],
-        'handle-callback-err': [2, '^(err|error)$'],
-        'indent': 0,
-        'key-spacing': [2, {
-        'beforeColon': false,
-        'afterColon': true
-        }],
-        'keyword-spacing': [2, {
+  root: true,
+  env: {
+    node: true
+  },
+  extends: ['plugin:vue/recommended',"plugin:vue/essential", "@vue/typescript",],
+  rules: {
+    // ts规则
+    // 'semicolon':[treu],
+    // 'await-promise':true,
+    // 'no-floating-promises': true,
+    // 'arrow-parens':true,
+    // js 规则
+    'vue/require-default-prop': 'off',
+    'no-console': 'off',
+    'vue/v-bind-style': 'off',
+    'vue/v-on-style': 'off',
+    'no-unused-vars': 'off',
+    'vue/no-v-html': 'off',
+    'vue/script-indent':['error',2,{'baseIndent':1}],
+    'arrow-spacing': [2, {
         'before': true,
         'after': true
-        }],
-        'new-cap': [2, {
-            'newIsCap': true,
-            'capIsNew': false
-        }],
-        'new-parens': 2,
+    }],
+    'block-spacing': [2, 'always'],
+    'brace-style': [2, '1tbs', {
+        'allowSingleLine': true
+    }],
+    'camelcase': [0, {
+    'properties': 'always'
+    }],
+    'comma-dangle': [2, 'never'],
+    'comma-spacing': [2, {
+        'before': false,
+        'after': true
+    }],
+    'comma-style': [2, 'last'],
+    'constructor-super': 2,
+    'curly': [2, 'multi-line'],
+    'dot-location': [2, 'property'],
+    'eol-last': 2,
+    'eqeqeq': [2, 'allow-null'],
+    'generator-star-spacing': [2, {
+        'before': true,
+        'after': true
+    }],
+    'handle-callback-err': [2, '^(err|error)$'],
+    'indent': 0,
+    'key-spacing': [2, {
+    'beforeColon': false,
+    'afterColon': true
+    }],
+    'keyword-spacing': [2, {
+    'before': true,
+    'after': true
+    }],
+    'new-cap': [2, {
+        'newIsCap': true,
+        'capIsNew': false
+    }],
+    'new-parens': 2,
     'no-array-constructor': 2,
     'no-caller': 2,
     'no-console': 'off',
@@ -180,17 +183,29 @@ module.exports = {
       objectsInObjects: false
     }],
     'array-bracket-spacing': [2, 'never']
-    },
-    parserOptions: {
-        parser: 'babel-eslint',
-        "ecmaFeatures": {
-          "legacyDecorators": true
-        }
-    },
-    globals: {
-        location: true,
-        document: true,
-        window: true,
-        GLOBAL: true
-    }
-}
+  },
+  parserOptions: {
+    parser: "@typescript-eslint/parser"
+  }
+};
+
+// module.exports = {
+//   root: true,
+//   env: {
+//     node: true
+//   },
+//   extends: [
+//     "plugin:vue/essential",
+//     "eslint:recommended",
+//     "@vue/typescript/recommended",
+//     "@vue/prettier",
+//     "@vue/prettier/@typescript-eslint"
+//   ],
+//   parserOptions: {
+//     ecmaVersion: 2020
+//   },
+//   rules: {
+//     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+//     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+//   }
+// };

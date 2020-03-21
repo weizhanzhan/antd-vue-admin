@@ -12,10 +12,12 @@
   </div>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import { Vue, Component } from 'vue-property-decorator'
+  @Component({
     name: 'WxContainer'
-
+  })
+  export default class WxContainer extends Vue {
   }
 </script>
 
@@ -26,7 +28,8 @@
     background: #ffffff
   }
   .container-body{
-   margin: 24px 24px 0;
+    margin: 24px;
+    transition: all .2s;
   }
 }
 </style>

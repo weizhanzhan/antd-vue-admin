@@ -1,4 +1,4 @@
-import request from '../utils/requests'
+import request from '../utils/request'
 
 export function uploadBlog(data:any) {
   return request({
@@ -59,7 +59,7 @@ export function addCategory(data:any) {
   })
 }
 
-export function editCategory(id:any,data:any){
+export function editCategory(id:any, data:any) {
   return request({
     url: '/categories/edit/' + id,
     method: 'post',
@@ -67,9 +67,9 @@ export function editCategory(id:any,data:any){
   })
 }
 
-export function delCategory(id:any){
+export function delCategory(id:any) {
   return request({
     url: '/categories/del/' + id,
-    method: 'delete',
+    method: 'delete'
   })
 }
