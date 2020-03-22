@@ -15,7 +15,7 @@
       @click="handleMenuClick"
       @openChange="handleOpenChange"
     >
-      <template v-for="item in handleRoutes(filterByRoleAddedRoutes)">
+      <template v-for="item in handleRoutes(filterByRoleAddedModueRoutes)">
         <a-menu-item
           v-if="!item.children"
           :key="item.name"
@@ -54,6 +54,7 @@
     @Prop()collapsed!:Boolean
     @Getter('routes') public routes!: any
     @Getter('addRoutes') public filterByRoleAddedRoutes!: Array<any>
+    @Getter('activeModuleMenu') public filterByRoleAddedModueRoutes!: Array<any>
     @Watch('$route')
     onRouterChange() :void {
       this.handleMenuOpenedKeys()

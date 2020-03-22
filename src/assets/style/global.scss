@@ -10,11 +10,18 @@
 }
 
 .side_bar_dark {
-  background: #010101 !important
+  background: #010101 !important;
+  .ant-layout-sider-trigger{
+    background: #010101 !important;
+  }
 }
 
 .side_bar_light {
-  background: #fff !important
+  background: #fff !important;
+  .ant-layout-sider-trigger{
+    background: #fff !important;
+    color:  #010101;
+  }
 }
 
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {

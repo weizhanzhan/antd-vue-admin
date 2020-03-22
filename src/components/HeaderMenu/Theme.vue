@@ -69,9 +69,9 @@
     }
 
     mounted() {
-      const init_theme = localStorage.getItem('local_theme')
-      this.activeTheme = (init_theme || '#2F54E8')
-      updateTheme(this.activeTheme)
+      // const init_theme = localStorage.getItem('local_theme')
+      // this.activeTheme = (init_theme || '#2F54E8')
+      // updateTheme(this.activeTheme)
     }
     changeMenuTheme(val:Boolean) { this.$emit('changeLeftBar', val) }
   }
