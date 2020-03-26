@@ -12,7 +12,6 @@ function hasPermission(roles:Array<string>, permissionRoles:Array<string>) {
 }
 
 router.beforeEach((to, from, next) => {
-  console.log(store.getters.addRoutes)
   if (getToken()) {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
@@ -20,9 +19,7 @@ router.beforeEach((to, from, next) => {
       if (store.getters.roles.length === 0) {
         store.dispatch('GetUserInfo').then(info => {
           const roles = info.role
-          store.dispatch('GenerateRoutes', {
-              roles
-            }) // 根据用户权限生产可访问的路由表
+          store.dispatch('GenerateRoutes', { roles }) // 根据用户权限生产可访问的路由表
             .then(() => {
               router.addRoutes(store.getters.addRoutes)
               next({

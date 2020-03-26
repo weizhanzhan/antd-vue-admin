@@ -45,11 +45,28 @@
   export default class UserConfig extends Vue {
     @Getter('user') public user!: any
     @Getter('moduleMenu') public moduleMenu!: any
+    @Getter('activeModuleMenu') public activeModuleMenu!: any
     @Getter('activeModule') public activeModule!: any
     @Action('handleModuleMenu')public handleModuleMenu!: any
     dropClick(item:any) :void{
-      const key = item.key
-      this.handleModuleMenu(key)
+      const moduleName = item.key
+      this.handleModuleMenu(moduleName)
+      this.toThisModuleFirstPage()
+      console.log(this.activeModuleMenu)
+    }
+    mounted() {
+      this.handleInitModule()
+    }
+    toThisModuleFirstPage() {
+      const { activeModuleMenu } = this
+      if (activeModuleMenu.length) {
+        const firstPage = activeModuleMenu[0]
+        this.$router.push({ name: firstPage.name })
+      }
+    }
+    handleInitModule() {
+      const moduleName = this.$route.meta.module
+      this.handleModuleMenu(moduleName)
     }
   }
 </script>

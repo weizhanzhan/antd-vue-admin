@@ -1,0 +1,32 @@
+.dashboard {
+  .w_menu_card {
+    margin-bottom: 32px
+  }
+  .w_card_content {
+    background: #ffffff;
+    height: 125px;
+    padding: 20px;
+    .w_card_title {
+      float: right;
+    }
+    .w_card_remark {
+      font-size: 14px;
+      float: right;
+      margin-top: 8px;
+      color: #999;
+      font-weight: 300;
+    }
+  }
+  .w_card_content>h2 {
+    font-size: 20px;
+    color: #303030;
+    font-weight: 700;
+    margin-bottom: 5px
+  }
+  .w_card_content>h5 {
+    font-size: 14px;
+    color: #303030;
+    font-weight: 700;
+    margin-bottom: 5px
+  }
+}

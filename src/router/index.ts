@@ -5,9 +5,9 @@ Vue.use(VueRouter)
 const getComponent = require(`./import_${process.env.NODE_ENV}`)
 
 export const constantRoutes = [
-  {
-    path: '/', redirect: '/dashboard'
-  },
+  // {
+  //   path: '/', redirect: '/dashboard'
+  // },
   {
     path: '/login', name: 'login', component: getComponent('common/login/index')
   },
