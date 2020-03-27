@@ -3,9 +3,8 @@
     <a-dropdown>
       <div class="module-icon">
         <span>
-
           <a-icon type="home" />
-          {{ activeModule }}
+          <label style="padding-left:10px">{{ activeModule }}</label>
         </span>
         <span>
           <a-icon type="caret-down" />

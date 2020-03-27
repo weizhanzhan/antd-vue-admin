@@ -1,77 +1,128 @@
-import {
-  constantRoutes
-} from '@/router'
-const getComponent = require(`@/router/import_${process.env.NODE_ENV}`)
 import Layout from '../../components/Layout/index.vue'
 import moduleMenu from '../../config/router.config'
+const getComponent = require(`@/router/import_${process.env.NODE_ENV}`)
 
-function hasPermission(roles: any, route: any) {
+interface PermissionState {
+  addRoutes:Array<ModuleMenuItem>
+  moduleMenu:Array<ModuleMenu>
+  activeModuleMenu:Array<ModuleMenuItem>
+  activeModule:string
+}
+
+interface ModuleMenu {
+  name:string,
+  menus:Array<ModuleMenuItem>
+}
+interface ModuleMenuItem{
+  path: string
+  component: any
+  redirect: string
+  name: string
+  meta: {
+    title:string,
+    module:string,
+    roles:Array<string>
+  },
+  alwaysShow: boolean,
+  children:Array<ModuleMenuItem>
+}
+
+class FilterPassedRoute {
+  public route:ModuleMenuItem;
+  private roles: Array<string>
+  private moduleName:string
+  private onlyChangeMetaModule:boolean
+
+  constructor(route:ModuleMenuItem, roles:Array<string>, moduleName:string, onlyChangeMetaModule:boolean) {
+    this.route = route
+    this.roles = roles
+    this.moduleName = moduleName
+    this.onlyChangeMetaModule = onlyChangeMetaModule
+    this.handHasModuleName()
+    this.handHasChildren()
+    this.handleImportComponent()
+  }
+  handHasModuleName() {
+    const { moduleName, onlyChangeMetaModule, route: { path, redirect }} = this
+    if (moduleName) {
+      if (!onlyChangeMetaModule) {
+        this.route.path = `/${moduleName}${path}`
+        redirect && (this.route.redirect = `/${moduleName}${redirect}`)
+      }
+      this.route.meta.module = moduleName
+    }
+  }
+
+  handHasChildren() {
+    const { moduleName, roles, route: { children }} = this
+    if (children) {
+      this.route.children = filterAsyncRoutes(children, roles, moduleName, true)
+    }
+  }
+
+  handleImportComponent() {
+    const { component } = this.route
+    this.route.component = component === 'Layout' ? Layout : getComponent(component)
+  }
+
+  get processedRoute() {
+    return this.route
+  }
+}
+function hasPermission(roles: Array<string>, route: ModuleMenuItem) {
   if (route.meta && route.meta.roles) {
-    return roles.some((role: any) => route.meta.roles.includes(role))
+    return roles.some(role => route.meta.roles.includes(role))
   }
   return true
 }
 
-function filterAsyncRoutes(routes: any, roles: any, moduleName: string, onlyChangeMetaModule:boolean = false) {
-  const res: any = []
-  routes.forEach((route: any) => {
+/**
+ * @param routes -全部需要处理路由
+ * @param roles -登录用户的角色
+ * @param moduleName -路由对应的模块
+ * @param onlyChangeMetaModule -路由地址是否要拼接模块名称 一般一级路由需要 子路由不需要添加
+ * @description -当组件是模板的时候 直接赋值模板文件 其他的根据组件路径去获取,方法最后把符合条件的路由存到vuex
+ */
+function filterAsyncRoutes(routes: Array<ModuleMenuItem>, roles: Array<string>, moduleName: string, onlyChangeMetaModule:boolean = false) {
+  const filterPassRoute: Array<ModuleMenuItem> = []
+  routes.forEach(route => {
     const tmp = { ...route }
     if (hasPermission(roles, tmp)) {
-      if (tmp.component === 'Layout') { // 当组件是模板的时候 直接赋值模板文件
-        tmp.component = Layout
-      } else {
-        tmp.component = getComponent(tmp.component) // 其他的根据组件路径去获取
-      }
-      if (moduleName) { // 当接受的模块名称存在，而且需要拼接path的时候才会拼接模块地址，这里主要是为了拼接一级菜单，二级菜单不用考虑
-        if (!onlyChangeMetaModule) {
-          tmp.path = '/' + moduleName + tmp.path
-          tmp.redirect && (tmp.redirect = '/' + moduleName + tmp.redirect)
-        }
-        tmp.meta.module = moduleName
-      }
-
-      if (tmp.children) {
-        tmp.children = filterAsyncRoutes(tmp.children, roles, moduleName, true)
-      } // 把该route的children过滤，把符合条件的赋值给他的children
-      res.push(tmp)
+      const passedRoute = new FilterPassedRoute(route, roles, moduleName, onlyChangeMetaModule)
+      filterPassRoute.push(passedRoute.processedRoute)
     }
   })
-  return res
+  return filterPassRoute
 }
 
 const permission = {
   state: {
-    routes: [],
     addRoutes: [],
     moduleMenu,
     activeModule: '',
     activeModuleMenu: []
   },
   mutations: {
-    SET_ROUTES: (state: any, routes: any) => {
+    SET_ROUTES: (state: PermissionState, routes: Array<ModuleMenuItem>) => {
       state.addRoutes = routes
-      state.routes = constantRoutes.concat(routes)
     },
-    SET_MODULE_MENU: (state: any, data: any) => {
-      const {
-        routes,
-        moduleName
-      } = data
+    SET_MODULE_MENU: (state: PermissionState, data: {
+      routes:Array<ModuleMenuItem>
+      moduleName:string
+    }) => {
+      const { routes, moduleName } = data
       state.activeModuleMenu = routes
       state.activeModule = moduleName
     }
   },
   actions: {
-    GenerateRoutes(context: any, data: any) {
+    GenerateRoutes(context: any, data:{ roles: string }) {
       return new Promise(resolve => {
-        const {
-          roles
-        } = data
-        const accessedRoutes: Array < any > = []
+        const accessedRoutes: Array<any> = []
         const moduleMenu = context.state.moduleMenu
 
-        moduleMenu.forEach((item: any) => {
-          const pass = filterAsyncRoutes(item.menus, [roles], item.name)
+        moduleMenu.forEach((item: ModuleMenu) => {
+          const pass = filterAsyncRoutes(item.menus, [data.roles], item.name)
           accessedRoutes.push(...pass)
         })
 

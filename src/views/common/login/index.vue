@@ -89,7 +89,7 @@
           .then(() => {
             this.loading = false
             this.$message.success('登陆成功')
-            this.$router.push('/dashboard')
+            this.$router.push('/')
           }).catch(() => {
             this.loading = false
           })

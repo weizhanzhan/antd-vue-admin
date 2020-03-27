@@ -1,9 +1,9 @@
 
 <template>
   <div>
-    <div :class="['logo',theme+'_bg']">
-      <img src="/ico.png">
-      <span :class="['logo_text',theme,collapsed?'hide':'show']">Vue Admin</span>
+    <div :class="['logo',theme+'_border']">
+      <img src="/favicon.ico">
+      <span :class="['logo_text',theme,collapsed?'hide':'show',theme+'_bg']">Vue Admin</span>
     </div>
     <a-menu
       mode="inline"
@@ -107,10 +107,8 @@
 <style lang="scss" scoped>
   .logo {
     height: 32px;
-    margin: 16px;
+    padding: 19px 16px 45px 26px;
     color: #fff;
-    padding-left: 10px;
-    padding-top: 3px;
     .logo_text{
       font-size: 18px;
       font-weight: 700;
@@ -134,6 +132,12 @@
     }
   }
   .light_bg{
-    background: var(--PCL)
+    background: var(--PCL);
+  }
+  .light_border{
+     border-right: 1px solid #e8e8e8;
+  }
+  .dark_border{
+     border-right: 0
   }
 </style>

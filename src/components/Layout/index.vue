@@ -2,7 +2,6 @@
   <a-layout style="min-height: 100vh;">
     <a-layout-sider
       v-model="collapsed"
-
       collapsible
       :class="['side_bar_'+theme]"
     >
