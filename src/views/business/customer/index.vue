@@ -1,5 +1,5 @@
 <template>
-  <wx-container>
+  <wx-container show-bread>
     <template v-slot:header>
       <div style="height:60px;display:inline-block">
         <h2>客户管理中心</h2>

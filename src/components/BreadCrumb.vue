@@ -37,11 +37,12 @@
         this.getBreadcrumb()
       }
       getBreadcrumb() {
-        let matched:any = this.$route.matched.filter(item => item.name)
-        const first = matched[0]
-        if (first && first.name !== 'dashboard') {
-          matched = [{ path: '/dashboard', meta: { title: 'home' }}].concat(matched)
-        }
+        const matched:any = this.$route.matched.filter(item => item.name)
+        // const first = matched[0]
+        // if (first && first.name !== 'dashboard') {
+        //   matched = [{ path: '/dashboard', meta: { title: 'home' }}].concat(matched)
+        // }
+
         this.levelList = matched.filter((item:any) => item.meta && item.meta.title && item.meta.breadcrumb !== false)
       }
       pathCompile(path:string) {
@@ -56,8 +57,6 @@
           this.$router.push(redirect)
           return
         }
-        // console.log(this.pathCompile(path))
-        // this.$router.push(this.pathCompile(path))
         this.$router.push(path)
       }
   }

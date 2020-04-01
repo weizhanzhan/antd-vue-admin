@@ -4,6 +4,12 @@
       v-if="$slots.header"
       class="container-header"
     >
+      <div
+        v-if="showBread"
+        class="bread-crumb"
+      >
+        <bread-crumb />
+      </div>
       <slot name="header" />
     </div>
     <div class="container-body">
@@ -13,11 +19,16 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component } from 'vue-property-decorator'
+  import { Vue, Component, Prop } from 'vue-property-decorator'
+  import BreadCrumb from '../BreadCrumb.vue'
   @Component({
-    name: 'WxContainer'
+    name: 'WxContainer',
+    components: {
+      'bread-crumb': BreadCrumb
+    }
   })
   export default class WxContainer extends Vue {
+    @Prop({ default: false, type: Boolean }) showBread!:boolean
   }
 </script>
 
@@ -25,7 +36,11 @@
 .wx-container{
   .container-header{
     padding: 16px 24px;
-    background: #ffffff
+    background: #ffffff;
+    font-size: 14px;
+    .bread-crumb{
+      padding-bottom: 11px;
+    }
   }
   .container-body{
     margin: 24px;

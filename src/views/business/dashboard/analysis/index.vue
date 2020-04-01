@@ -1,8 +1,15 @@
 <template>
-  <wx-container>
+  <wx-container show-bread>
     <template v-slot:header>
       <div>
-        Container头部插槽
+        <h2>大数据中心</h2>
+        <a-icon
+          type="pie-chart"
+          class="chart-icon"
+          theme="twoTone"
+          two-tone-color="#eb2f96"
+        />
+        这里是数据分析的一些注释
       </div>
     </template>
     <div>

@@ -11,7 +11,8 @@ import {
     Form,
     Input,
     Upload,
-    Modal
+    Modal,
+    Tabs
 } from 'ant-design-vue'
 
 const antdComponents = [
@@ -24,7 +25,9 @@ const antdComponents = [
     { name: 'a-form-item', component: Form.Item },
     { name: 'a-input', component: Input },
     { name: 'a-upload', component: Upload },
-    { name: 'a-modal', component: Modal }
+    { name: 'a-modal', component: Modal },
+    { name: 'a-tabs', component: Tabs },
+    { name: 'a-tab-pane', component: Tabs.TabPane }
 ]
 const selfComponent = [
     { name: 'wx-container', component: WxContainer }

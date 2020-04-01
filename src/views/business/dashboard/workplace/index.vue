@@ -1,8 +1,14 @@
 <template>
-  <wx-container>
+  <wx-container show-bread>
     <template v-slot:header>
       <div>
-        Container头部插槽
+        <h2>工作台</h2>
+        <a-icon
+          type="dashboard"
+          class="chart-icon"
+          theme="twoTone"
+          two-tone-color="#52c41a"
+        />这里是工作台的一些注释
       </div>
     </template>
     <div>
