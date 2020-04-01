@@ -11,7 +11,10 @@
       />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0;">
+      <a-layout-header
+        style="background: #fff; padding: 0;height:50px;line-height:50px"
+        size="mini"
+      >
         <header-bar
           :collapsed="collapsed"
           @trigger="trigger"

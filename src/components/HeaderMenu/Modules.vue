@@ -77,7 +77,7 @@
    position: relative;
    &::before{
        position: absolute;
-       top:17px;
+       top:12px;
        content: '';
        right: 0;
        height: 30px;
