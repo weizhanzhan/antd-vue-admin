@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="wx-body"
-    style="padding:10px"
-  >
+  <div style="padding-bottom:10px">
     <a-form
       layout="inline"
       class="ant-advanced-search-form"

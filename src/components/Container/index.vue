@@ -10,7 +10,9 @@
       >
         <bread-crumb />
       </div>
-      <slot name="header" />
+      <div class="header_slot">
+        <slot name="header" />
+      </div>
     </div>
     <div class="container-body">
       <slot />
@@ -40,6 +42,9 @@
     font-size: 14px;
     .bread-crumb{
       padding-bottom: 11px;
+    }
+    .header_slot{
+      color: rgba(0, 0, 0, 0.65);
     }
   }
   .container-body{

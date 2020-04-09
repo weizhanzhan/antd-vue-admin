@@ -5,7 +5,7 @@
         <h2>大数据中心</h2>
         <a-icon
           type="pie-chart"
-          class="chart-icon"
+          class="header-icon"
           theme="twoTone"
           two-tone-color="#eb2f96"
         />

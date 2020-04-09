@@ -4,7 +4,7 @@
       <div class="module-icon">
         <span>
           <a-icon type="home" />
-          <label style="padding-left:10px">{{ activeModule }}</label>
+          <label style="padding-left:10px">{{ $t(`menu.${ activeModule}`) }}</label>
         </span>
         <span>
           <a-icon type="caret-down" />
@@ -18,7 +18,7 @@
           v-for="item in moduleMenu"
           :key="item.name"
         >
-          <span rel="noopener noreferrer">  <a-icon type="folder" />&nbsp;&nbsp;{{ item.name }}</span>
+          <span rel="noopener noreferrer">  <a-icon type="folder" />&nbsp;&nbsp;{{ $t(`menu.${ item.name }`) }}</span>
         </a-menu-item>
       </a-menu>
     </a-dropdown>
@@ -51,7 +51,6 @@
       const moduleName = item.key
       this.handleModuleMenu(moduleName)
       this.toThisModuleFirstPage()
-      console.log(this.activeModuleMenu)
     }
     mounted() {
       this.handleInitModule()

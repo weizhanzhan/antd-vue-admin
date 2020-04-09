@@ -20,13 +20,19 @@ export default [
             name: 'echarts',
             component: 'system/components/echarts',
             meta: { title: 'echarts' }
+          },
+          {
+            path: 'video',
+            name: 'video',
+            component: 'system/components/videos',
+            meta: { title: 'video' }
           }
         ]
       }
     ]
   },
   {
-    name: 'module1',
+    name: 'console',
     menus: [
       {
         path: '/dashboard',

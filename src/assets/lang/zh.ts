@@ -17,7 +17,10 @@ export default {
       system: '系统数据管理',
       user: '用户管理',
       recycleBin: '回收站',
-      chart: 'Chart'
+      chart: 'Chart',
+      video: 'video',
+      base: '基础服务',
+      console: '控制台'
     }
   }
 

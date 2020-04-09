@@ -17,7 +17,10 @@ export default {
       system: 'system',
       user: 'User',
       recycleBin: 'recycle bin',
-      chart: 'Chart'
+      chart: 'Chart',
+      video: 'Video',
+      base: 'Base',
+      console: 'Console'
     }
   }
 

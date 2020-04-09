@@ -5,7 +5,7 @@
       <div>
         <a-icon
           type="bar-chart"
-          class="chart-icon"
+          class="header-icon"
         />echarts常用集合
       </div>
     </template>
@@ -22,13 +22,13 @@
         </a-tab-pane>
         <a-tab-pane
           key="2"
-          tab="Tab 2"
+          tab="折线图"
         >
           Content of Tab 2
         </a-tab-pane>
         <a-tab-pane
           key="3"
-          tab="Tab 3"
+          tab="更多"
         >
           Content of Tab 3
         </a-tab-pane>

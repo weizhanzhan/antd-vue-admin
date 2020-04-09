@@ -60,7 +60,63 @@ const updateTheme = (primaryColor = '#2F54E8') => {
   }
 }
 
+class AliplayerOnline {
+  id:string
+  scriptSrc:string = 'https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js'
+  linkHref:string= 'https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css'
+  componentSrc:string = '/aliyun_player_component.js'
+  constructor(id:string) {
+    this.id = id
+    this.init()
+  }
+  init() {
+    console.log('触发')
+    this.initScript()
+    this.initLink()
+    this.initComponent()
+  }
+  initScript() {
+    const aliplayerScript = document.getElementById(this.id + 'script')
+    if (aliplayerScript) return
+    const aliplayerNewcript = document.createElement('script')
+    aliplayerNewcript.type = 'text/javascript'
+    aliplayerNewcript.src = this.scriptSrc
+    aliplayerNewcript.async = true
+    aliplayerNewcript.id = this.id + 'script'
+    document.body.appendChild(aliplayerNewcript)
+  }
+  initComponent() {
+    const aliplayerComponent = document.getElementById(this.id + 'component')
+    if (aliplayerComponent) return
+    const aliplayerNewComponent = document.createElement('script')
+    aliplayerNewComponent.type = 'text/javascript'
+    aliplayerNewComponent.src = this.componentSrc
+    aliplayerNewComponent.async = true
+    aliplayerNewComponent.id = this.id + 'component'
+    document.body.appendChild(aliplayerNewComponent)
+  }
+  initLink() {
+    const aliplayerLink = document.getElementById(this.id + 'link')
+    console.log(aliplayerLink)
+    if (aliplayerLink) return
+    const aliplayerNewLink = document.createElement('link')
+    aliplayerNewLink.href = 'https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css'
+    aliplayerNewLink.rel = 'stylesheet'
+    aliplayerNewLink.type = 'text/css'
+    aliplayerNewLink.id = this.id + 'link'
+    document.getElementsByTagName('head')[0].appendChild(aliplayerNewLink)
+  }
+  remove() {
+    const aliplayerScript = document.getElementById(this.id + 'script')
+    const aliplayerComponent = document.getElementById(this.id + 'component')
+    const aliplayerLink = document.getElementById(this.id + 'link')
+    aliplayerScript && document.body.removeChild(aliplayerScript as HTMLElement)
+    aliplayerComponent && document.body.removeChild(aliplayerComponent as HTMLElement)
+    aliplayerLink && document.getElementsByTagName('head')[0].removeChild(aliplayerLink as HTMLElement)
+  }
+}
 export {
     bus,
-    updateTheme
+    updateTheme,
+    AliplayerOnline
 }

@@ -5,7 +5,7 @@
         <h2>工作台</h2>
         <a-icon
           type="dashboard"
-          class="chart-icon"
+          class="header-icon"
           theme="twoTone"
           two-tone-color="#52c41a"
         />这里是工作台的一些注释

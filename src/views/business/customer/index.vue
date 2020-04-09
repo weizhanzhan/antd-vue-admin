@@ -9,9 +9,9 @@
         />： 本周新增3名客户 !
       </div>
     </template>
-    <div>
+    <div class="wx-body">
       <wx-filter />
-      <div style="padding:10px;background:#ffffff">
+      <div>
         <a-table
           :columns="columns"
           :data-source="data"

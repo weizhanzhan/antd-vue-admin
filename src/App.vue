@@ -9,14 +9,14 @@
 <script lang="ts">
   import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN'
   import moment from 'moment'
-  import { LocaleProvider } from 'ant-design-vue'
+  import { ConfigProvider } from 'ant-design-vue'
   import { Component, Vue } from 'vue-property-decorator'
   import 'moment/locale/zh-cn'
 
   moment.locale('en')
   @Component({
     components: {
-      'a-locale-provider': LocaleProvider
+      'a-locale-provider': ConfigProvider
     }
   })
   export default class App extends Vue {

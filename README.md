@@ -23,17 +23,14 @@
     </a>
 </p>
 
-## 提个醒😄
 
-此版本的ts代码是在原项目的基础上引入ts的，导致项目目录文件很乱，代码也不清晰，所以打算新建ts项目来重构代码和优化，可以先关注下正在重构的后台模板[antd-ts-template](https://github.com/weizhanzhan/ts-template-vue) ,后面陆续更新，另外对应展示的app端也加入开发计划当中！
 ## 简介
 
-[antd-vue-admin](https://github.com/weizhanzhan/antd-vue-admin) 是一个后台管理 spa 页面，它基于 [vue](https://github.com/vuejs/vue) 和 [ant-design-vue](https://github.com/vueComponent/ant-design-vue) 采用了最新的前端技术栈，实现了登录权限验证，动态路由生成，参考[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 和[ant-design-pro-vue](https://github.com/sendya/ant-design-pro-vue)，实现更标准化的前端实例模型，根据自己的业务修该对应的路由信息等模块信息，快速搭建后台管理系统模板。
+[antd-vue-admin](https://github.com/weizhanzhan/antd-vue-admin) 是一个后台管理 spa 页面，它基于 [vue](https://github.com/vuejs/vue) 和 [ant-design-vue](https://github.com/vueComponent/ant-design-vue) 采用了最新的前端技术栈，实现了登录权限验证，动态路由生成(新加入模块，根据模块生成对应模块的菜单信息)，参考[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 和[ant-design-pro-vue](https://github.com/sendya/ant-design-pro-vue)，实现更标准化的前端实例模型，根据自己的业务修该对应的路由信息等模块信息，快速搭建后台管理系统模板。此版本是经过Typescript重构，加入一些新功能
 
 
->喜欢的留个star，希望不要修改数据哦，谢谢
 
->ts版单独在antd-vue-ts分支上，不考虑ts请切换master分支
+>此版本是ts版本 分支typescript_dev，不考虑ts请切换master分支
 
 ### 安装
 
@@ -64,17 +61,18 @@ npm run build
 ```
 - 登录 / 注销
 - 页面
+  - 模块切换
   - dashboard
   - sideBar收缩和展开
   - 主题换肤
-  - 中英文切换（未完善）
-
+  - 中英文切换
+  
 - 侧边栏
-  - 根据不同用户权限展示相应的动态左侧菜单
+  - 根据不同用户权限展示相应模块下的动态左侧菜单，模块切换，菜单更换
 
 - 权限验证
-  - 管理员页面（暂无）
-  - 权限设置（暂无）
+  - 管理员页面 
+  - 权限设置 
 
 - 表格操作
   - 涉及平常业务遇到的相关表格操作（参考）
@@ -83,10 +81,10 @@ npm run build
  - 滑动显示更多数据
  - 动态切换charts
  - map地图使用
-
+ - video视频播放 AliyunPlayer
 - Icons
  - 阿里iconfont
-- TypeScript（待完善）
+- TypeScript（已经加入）
 ```
 
 ### Online
