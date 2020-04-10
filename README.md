@@ -30,7 +30,7 @@
 
 
 
->此版本是ts版本 分支typescript_dev，不考虑ts请切换master分支
+>此版本是ts版本 分支typescript_dev，不考虑ts请切换master分支,或者antd-vue-ts分支ts，js代码都有的
 
 ### 安装
 
