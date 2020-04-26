@@ -58,7 +58,7 @@ npm run build
 
 ### Online
 
-[在线浏览](http://test1.zlpfs.com) 此链接可能无效头部链接可以访问
+[在线浏览](https://antd-vue-admin.now.sh/)用户名密码随便输入
 >账号375786117@qq.com 密码123456
 ![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/demo.gif)
 ![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/typescript_dev/public/temp.gif)
