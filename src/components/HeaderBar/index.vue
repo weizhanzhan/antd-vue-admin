@@ -3,13 +3,6 @@
   <header class="header">
     <div class="header-left">
       <module-menu />
-
-      <!-- <a-icon
-        class="trigger"
-        :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-        @click="changeCollapsed"
-      />
-      <bread-crumb class="head-bread" /> -->
     </div>
     <ul class="menu">
       <li class="user">

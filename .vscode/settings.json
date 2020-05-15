@@ -1,3 +1,5 @@
 {
-    "vue-i18n.i18nPaths": "src\\assets\\lang"
+    "vue-i18n.i18nPaths": "src\\assets\\lang",
+    "vscode.tsc.compiler.alertTSConfigChanges": "never",
+    "vscode.tsc.compiler.alertOnError": "never"
 }

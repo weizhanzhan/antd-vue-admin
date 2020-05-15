@@ -2,7 +2,7 @@ import Layout from '../../components/Layout/index.vue'
 import moduleMenu from '../../config/router.config'
 const getComponent = require(`@/router/import_${process.env.NODE_ENV}`)
 
-interface PermissionState {
+export interface State {
   addRoutes:Array<ModuleMenuItem>
   moduleMenu:Array<ModuleMenu>
   activeModuleMenu:Array<ModuleMenuItem>
@@ -103,10 +103,10 @@ const permission = {
     activeModuleMenu: []
   },
   mutations: {
-    SET_ROUTES: (state: PermissionState, routes: Array<ModuleMenuItem>) => {
+    SET_ROUTES: (state: State, routes: Array<ModuleMenuItem>) => {
       state.addRoutes = routes
     },
-    SET_MODULE_MENU: (state: PermissionState, data: {
+    SET_MODULE_MENU: (state: State, data: {
       routes:Array<ModuleMenuItem>
       moduleName:string
     }) => {

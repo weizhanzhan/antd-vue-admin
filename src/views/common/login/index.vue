@@ -9,8 +9,8 @@
       >
         <a-form-item>
           <a-input
-            v-decorator="[ 'userName', { rules: [{ required: true, message: 'Please input your username!' }] } ]"
-            placeholder="Username"
+            v-decorator="[ 'email', { rules: [{ required: true, message: 'Please input your email!' }] } ]"
+            placeholder="email"
           >
             <a-icon
               slot="prefix"
@@ -74,7 +74,7 @@
     }
   })
   export default class Login extends Vue {
-    loginForm: { username: string; password: string; } = { username: '', password: '' };
+    loginForm: { email: string; password: string; } = { email: '', password: '' };
     loading = false;
     form:any;
     beforeCreate() {

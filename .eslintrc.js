@@ -3,10 +3,10 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/recommended',"plugin:vue/essential", "@vue/typescript",],
+  extends: ['plugin:vue/recommended',"plugin:vue/essential", "@vue/typescript"],
   rules: {
     // ts规则
-    // 'semicolon':[treu],
+    // // 'semicolon':[treu],
     // 'await-promise':true,
     // 'no-floating-promises': true,
     // 'arrow-parens':true,

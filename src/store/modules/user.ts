@@ -1,87 +1,72 @@
-// import { loginByUsername, getUserInfo } from '@/api/login'
+/* eslint-disable no-unused-vars */
+import { loginByUsername, getUserInfo } from '@/api/login'
 import { setToken, removeToken } from '@/utils/auth'
+import { LoginInfo, UserInfo } from '@/interface/api/login'
+import { Commit } from 'vuex'
 import { message } from 'ant-design-vue'
-type UserState = {
-    user:string,
-    roles:Array<string>,
-    token:string
+export interface State {
+  user: UserInfo
+  roles: Array < string >
+  token: string
 }
 const user = {
-    state: {
-        user: '',
-        roles: [],
-        token: ''
+  state: {
+    user: {},
+    roles: [],
+    token: ''
+  },
+  mutations: {
+    SET_TOKEN(state: State, token: string) {
+      state.token = token
     },
-    mutations: {
-        SET_TOKEN(state:UserState, token:string) {
-            state.token = token
-        },
-        SET_USER_INFO(state:UserState, info:any) {
-            state.user = info
-        },
-        SET_ROLE(state:UserState, role:any) {
-            state.roles = role
-        }
+    SET_USER_INFO(state: State, info: UserInfo) {
+      state.user = info
     },
-    actions: {
-        LoginByUsername(context:any, userInfo:any) {
-            // const username = userInfo.userName.trim()
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    context.commit('SET_ROLE', [])
-                    context.commit('SET_TOKEN', 'Bearer test_token')
-                    setToken('Bearer test_token')
-                    resolve()
-                }, 2000)
-                // 以上用模拟数据 以下是真实接口
-                // loginByUsername(username, userInfo.password).then((response:any) => {
-                //     context.commit('SET_ROLE', [])
-                //     context.commit('SET_TOKEN', response.token)
-                //     setToken(response.token)
-                //     resolve()
-                // }).catch(error => {
-                //     reject(error)
-                // })
-            })
-        },
-        GetUserInfo(context:any) {
-            return new Promise((resolve, reject) => {
-              const mockInfo = {
-                id: '5e42284c33e0235a7e5145e7',
-                name: '系统管理员',
-                email: '375786117@qq.com',
-                role: 'admin',
-                avatar: '//www.gravatar.com/avatar/ae6d4e19f36583b6c0fb717e654b45a9?s=200&r=pg&d=mm'
-              }
-              context.commit('SET_USER_INFO', mockInfo)
-              context.commit('SET_ROLE', [mockInfo.role])
-              resolve(mockInfo)
-              // 以上模拟数据 一下真实接口
-              // getUserInfo().then((res:any) => {
-              //     context.commit('SET_USER_INFO', res)
-              //     context.commit('SET_ROLE', [res.role])
-              //     resolve(res)
-              // })
-              // .catch(err => {
-              //     reject(err)
-              // })
-            })
-        },
-        Logout(context:any) {
-            return new Promise((resolve, reject) => {
-                try {
-                    message.success('退出成功！')
-                    context.commit('SET_USER_INFO', '')
-                    context.commit('SET_TOKEN', '')
-                    context.commit('SET_ROLE', [])
-                    removeToken()
-                    resolve()
-                } catch (error) {
-                    reject(error)
-                }
-            })
-        }
+    SET_ROLE(state: State, role: Array<string>) {
+      state.roles = role
     }
+  },
+  actions: {
+    LoginByUsername(context: { commit: Commit }, userInfo: LoginInfo) {
+      const email = userInfo.email.trim()
+      return new Promise((resolve, reject) => {
+        loginByUsername({ email, password: userInfo.password }).then((response) => {
+          context.commit('SET_ROLE', [])
+          context.commit('SET_TOKEN', response.access_token)
+          setToken(response.access_token)
+          resolve()
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+    GetUserInfo(context: { commit: Commit }) {
+      return new Promise((resolve, reject) => {
+        getUserInfo().then(res => {
+          context.commit('SET_USER_INFO', res)
+          context.commit('SET_ROLE', [res.role])
+          resolve(res)
+        })
+        .catch(err => {
+          reject(err)
+        })
+      })
+    },
+    Logout(context: { commit: Commit }) {
+      return new Promise((resolve, reject) => {
+        try {
+          message.success('退出成功！')
+          context.commit('SET_USER_INFO', '')
+          context.commit('SET_TOKEN', '')
+          context.commit('SET_ROLE', [])
+          removeToken()
+          resolve()
+        } catch (error) {
+          reject(error)
+        }
+      })
+    }
+  }
 }
 
 export default user

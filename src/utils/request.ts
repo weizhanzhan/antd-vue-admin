@@ -2,8 +2,14 @@ import axios from 'axios'
 import { getToken } from './auth'
 import { message } from 'ant-design-vue'
 import router from '../router'
+declare module 'axios' {
+  interface AxiosInstance {// 设置返回类型是promise
+    (config: AxiosRequestConfig): Promise<any>
+  }
+}
+
 const service = axios.create({
-    baseURL: process.env.VUE_APP_BASE_API, // 'http://localhost:5000/api',
+    baseURL: process.env.VUE_APP_BASE_API,
     timeout: 10000
 })
 service.interceptors.request.use(
@@ -22,7 +28,6 @@ service.interceptors.response.use(
   error => {
     if (error.code) { message.error('网络超时....') }
     if (error.response && error.response.data) {
-      console.log(error.response.data)
       message.error(JSON.stringify(error.response.data))
       if (error.response.status === 401) {
         router.push('/login')

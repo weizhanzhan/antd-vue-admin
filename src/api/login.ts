@@ -1,20 +1,19 @@
 import request from '@/utils/request'
+// eslint-disable-next-line no-unused-vars
+import * as LoginInterface from '../interface/api/login'
+const mockNum = '/mock/89/api/'
 
-export function loginByUsername(username:string, password:string) {
-  const data = {
-    email: username,
-    password
-  }
+export const loginByUsername = (data:LoginInterface.LoginInfo):Promise<LoginInterface.LoginResponse> => {
   return request({
-    url: '/users/login',
+    url: mockNum + 'login',
     method: 'post',
     data
   })
 }
 
-export function getUserInfo() {
+export const getUserInfo = ():Promise<LoginInterface.UserInfo> => {
   return request({
-      url: '/current',
+      url: mockNum + 'userInfo',
       method: 'get'
   })
 }
