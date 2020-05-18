@@ -2,7 +2,7 @@
 <template>
   <div>
     <div :class="['logo',theme+'_border']">
-      <img src="/favicon.ico">
+      <img src="/vue-admin-preview/favicon.ico">
       <span :class="['logo_text',theme,collapsed?'hide':'show',theme+'_bg']">Vue Admin</span>
     </div>
     <a-menu

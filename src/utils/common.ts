@@ -37,7 +37,7 @@ const updateTheme = (primaryColor = '#2F54E8') => {
     const lessConfigNode = document.createElement('script')
     const lessScriptNode = document.createElement('script')
     lessStyleNode.setAttribute('rel', 'stylesheet/less')
-    lessStyleNode.setAttribute('href', '<%= BASE_URL %>color.less')
+    lessStyleNode.setAttribute('href', '/vue-admin-preview/color.less')
     lessConfigNode.innerHTML = `
     window.less = {
       async: true,
