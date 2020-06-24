@@ -14,26 +14,53 @@
       <div>
         <a-table
           :columns="columns"
-          :data-source="data"
-          :row-key="record => record._id"
+          :data-source="customerList"
+          :row-key="record => record.id"
           :pagination="false"
           :loading="loading"
         >
-          <template
-            slot="avatar"
-            slot-scope="avatar"
-          >
-            <a-avatar
-              :src="avatar"
-              :size="23"
-            />
-          </template>
-          <template
+          <a
             slot="name"
             slot-scope="name"
           >
             {{ name }}
+          </a>
+          <template
+            slot="code"
+            slot-scope="code"
+          >
+            <a-tag
+              :color="getCustomerType(code).tagColor"
+            >
+              {{ getCustomerType(code).name }}
+            </a-tag>
           </template>
+          <template
+            slot="state"
+            slot-scope="state"
+          >
+            <a-tag
+              v-if="!state"
+              color="red"
+            >
+              冻结
+            </a-tag>
+            <a-tag
+              v-else
+              color="cyan"
+            >
+              激活
+            </a-tag>
+          </template>
+          <span
+            slot="action"
+            slot-scope=""
+          >
+            <a>编辑</a>
+            <a-divider type="vertical" />
+            <a>删除</a>
+
+          </span>
         </a-table>
       </div>
     </div>
@@ -43,43 +70,70 @@
 <script lang="ts">
 
   import { Vue, Component, Prop } from 'vue-property-decorator'
+  import { Tag, Divider } from 'ant-design-vue'
   import WxFilter from './components/filter.vue'
+  // eslint-disable-next-line no-unused-vars
+  import { Customer, CustomerContent } from '@/entity/Customer'
+  import { CustomerCodeType } from '@/model/CustomerModel'
   const CustomerImg = require('../../../assets/images/customer.jpg')
   const columns = [
     {
-      title: 'avatar',
-      dataIndex: 'avatar',
-      width: '20%',
-      scopedSlots: { customRender: 'avatar' }
-    },
-    {
-      title: 'Name',
+      title: '客户名称',
       dataIndex: 'name',
       sorter: true,
       width: '20%',
       scopedSlots: { customRender: 'name' }
     },
     {
-      title: 'Role',
-      dataIndex: 'role',
-      width: '20%'
+      title: 'code',
+      dataIndex: 'code',
+      scopedSlots: { customRender: 'code' }
     },
     {
-      title: 'Email',
-      dataIndex: 'email'
+      title: 'state',
+      dataIndex: 'state',
+      scopedSlots: { customRender: 'state' }
+    },
+    {
+      title: '电话',
+      dataIndex: 'phone'
+    },
+    {
+      title: '地址',
+      dataIndex: 'address'
+    },
+    {
+      title: '操作',
+      key: 'action',
+      scopedSlots: { customRender: 'action' }
     }
   ]
+  // eslint-disable-next-line no-unused-vars
+  enum CustomerTypes { first, second, thrid}
+
   @Component({
   components: {
-    'wx-filter': WxFilter
+    'wx-filter': WxFilter,
+    'a-tag': Tag,
+    'a-divider': Divider
     }
   })
-  export default class Customer extends Vue {
-    customerImg = CustomerImg
-    visible: boolean = false;
-    columns:Array<object> = columns
-    @Prop() data!:Array<object>
+  export default class extends Vue {
+    private customerImg = CustomerImg
+    private visible: boolean = false;
+    private columns:Array<object> = columns
+    private customerList:Array<CustomerContent> = []
+    private total:number = 0
     @Prop() loading!:boolean
+
+    getCustomerType(code:string) {
+      return CustomerCodeType[code]
+    }
+    async mounted() {
+      const customerListContent = await Customer.getAllCustoemrList()
+      this.customerList = customerListContent.contents
+      this.total = customerListContent.totalElements
+    }
   }
 </script>
 

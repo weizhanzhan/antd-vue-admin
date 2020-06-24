@@ -18,7 +18,15 @@
           v-for="item in moduleMenu"
           :key="item.name"
         >
-          <span rel="noopener noreferrer">  <a-icon type="folder" />&nbsp;&nbsp;{{ $t(`menu.${ item.name }`) }}</span>
+          <div class="module-menu-item">
+            <span rel="noopener noreferrer">  <a-icon type="folder" />&nbsp;&nbsp;{{ $t(`menu.${ item.name }`) }}</span>
+            <span v-if="activeModule === item.name">
+              <a-icon
+                type="environment"
+                theme="twoTone"
+                two-tone-color="#52c41a"
+              /></span>
+          </div>
         </a-menu-item>
       </a-menu>
     </a-dropdown>
@@ -91,6 +99,10 @@
   .module-icon:hover {
     background: rgba(0, 0, 0, 0.025);
   }
-}
 
+}
+.module-menu-item{
+  display: flex;
+  justify-content: space-between;
+}
 </style>
