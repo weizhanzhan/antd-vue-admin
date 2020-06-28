@@ -74,10 +74,24 @@ export const asyncRoutes = [
   //   ]
   // }
 ]
-const router = new VueRouter({
-  // mode: 'history',
+
+const createRouter = () => new VueRouter({
+  // mode: 'history', // require service support
+  scrollBehavior: ():any => ({ y: 0 }),
   base: process.env.BASE_URL,
   routes: constantRoutes
 })
+
+const router = createRouter()
+
+export function resetRouter() { // 清除路由缓存
+  const newRouter = createRouter();
+  (router as any).matcher = (newRouter as any).matcher // reset router
+}
+// const router = new VueRouter({
+//   // mode: 'history',
+//   base: process.env.BASE_URL,
+//   routes: constantRoutes
+// })
 
 export default router

@@ -4,6 +4,7 @@ import { setToken, removeToken } from '@/utils/auth'
 import { LoginInfo, UserInfo } from '@/interface/api/login'
 import { Commit } from 'vuex'
 import { message } from 'ant-design-vue'
+import { resetRouter } from '@/router'
 export interface State {
   user: UserInfo
   roles: Array < string >
@@ -56,6 +57,7 @@ const user = {
       return new Promise((resolve, reject) => {
         try {
           message.success('退出成功！')
+          resetRouter()
           context.commit('SET_USER_INFO', '')
           context.commit('SET_TOKEN', '')
           context.commit('SET_ROLE', [])
