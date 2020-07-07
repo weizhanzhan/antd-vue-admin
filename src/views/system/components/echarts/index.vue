@@ -22,9 +22,9 @@
         </a-tab-pane>
         <a-tab-pane
           key="2"
-          tab="折线图"
+          tab="柱状"
         >
-          Content of Tab 2
+          <a-gong-bar />
         </a-tab-pane>
         <a-tab-pane
           key="3"
@@ -40,9 +40,11 @@
 <script lang="ts">
   import { Vue, Component } from 'vue-property-decorator'
   import WordCloud from './components/word-cloud/index.vue'
+  import GongBar from './components/GongBar.vue'
   @Component({
     components: {
-      'a-word-cloud': WordCloud
+      'a-word-cloud': WordCloud,
+      'a-gong-bar': GongBar
     }
   })
   export default class EchartCompnents extends Vue {
