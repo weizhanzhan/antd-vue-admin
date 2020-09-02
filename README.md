@@ -94,6 +94,105 @@ npm run build
 - TypeScript（已经加入）
 ```
 
+### 顶部加载条
+安装
+```
+yarn add nprogress
+yarn add @types/nprogress
+```
+使用
+```js
+router.beforeEach(()=>{
+  NProgress.start()
+})
+router.afterEach(() => {
+  NProgress.done()
+})
+```
 
-<!-- ![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/dark.png)
-![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/antd-vue-ts/public/light.png) -->
+
+### 抽取公共包，引入CDN
+```js
+const externals = {
+  vue: 'Vue',
+  'vue-router': 'VueRouter',
+  vuex: 'Vuex',
+  axios: 'axios'
+}
+const cdnMap = {
+  css: [],
+  js: [
+      '//unpkg.com/vue@2.6.10/dist/vue.min.js',
+      '//unpkg.com/vue-router@3.0.6/dist/vue-router.min.js',
+      '//unpkg.com/vuex@3.1.1/dist/vuex.min.js',
+      '//unpkg.com/axios@0.19.0/dist/axios.min.js'
+  ]
+}
+module.exports = {
+  chainWebpack: config => {
+    config.externals(externals)
+    config.plugin('html').tap(args => {
+      args[0].cdn = cdnMap
+      args[0].minify && (args[0].minify.minifyCSS = true) // 压缩html中的css
+      return args
+    })
+  }
+}
+
+```
+
+然后在index.html里添加
+```html
+<!-- 使用CDN的CSS文件 -->
+<% for (var i in
+  htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.css) { %>
+  <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="preload" as="style" />
+  <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet" />
+<% } %>
+  <!-- 使用CDN加速的JS文件，配置在vue.config.js下 -->
+<% for (var i in
+  htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.js) { %>
+  <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+<% } %>
+
+```
+
+### 去除console
+保存测试环境和本地开发环境的console
+```
+npm i -D babel-plugin-transform-remove-console
+```
+在 babel.config.js 中配置
+```js
+// 获取 VUE_APP_ENV 非 NODE_ENV，测试环境依然 console
+const IS_PROD = ['production', 'prod'].includes(process.env.VUE_APP_ENV)
+
+const plugins = [
+  [
+    'import',
+    { libraryName: 'ant-design-vue', libraryDirectory: 'es', style: true }
+  ]
+]
+
+// 去除 console.log
+if (IS_PROD) {
+  plugins.push('transform-remove-console')
+}
+
+module.exports = {
+  presets: ['@vue/cli-plugin-babel/preset'],
+  plugins
+}
+
+
+```
+
+# 关于我
+![Image text](https://github.com/weizhanzhan/antd-vue-admin/blob/typescript_dev/public/me.png)
+加我微信，邀你进入技术交流群，交流学习 😄 共同进步<br>
+如果喜欢请给我一个小♥♥ ⭐ （づ￣3￣）づ
+
+# 感谢
+[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) <br>
+[ant-design-pro-vue](https://github.com/sendya/ant-design-pro-vue) <br>
+[vue-h5-template](https://github.com/sunniejs/vue-h5-template)

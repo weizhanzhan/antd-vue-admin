@@ -2,7 +2,8 @@ import router from './router'
 import store from './store'
 import { getToken } from '@/utils/auth'
 import { message } from 'ant-design-vue'
-
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 const whiteList = ['/login', '/auth-redirect']
 
 function hasPermission(roles:Array<string>, permissionRoles:Array<string>) {
@@ -12,6 +13,7 @@ function hasPermission(roles:Array<string>, permissionRoles:Array<string>) {
 }
 
 router.beforeEach((to, from, next) => {
+  NProgress.start()
   if (getToken()) {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
@@ -47,4 +49,7 @@ router.beforeEach((to, from, next) => {
       next(`/login?redirect=${to.path}`) // 否则全部重定向到登录页
     }
   }
+})
+router.afterEach(() => {
+  NProgress.done()
 })

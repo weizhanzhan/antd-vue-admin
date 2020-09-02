@@ -4,4 +4,5 @@ declare module '*.vue' {
 }
 
 declare module 'path-to-regexp'
+declare module 'nprogress'
 declare module 'ant-design-vue/lib/locale-provider/zh_CN'
