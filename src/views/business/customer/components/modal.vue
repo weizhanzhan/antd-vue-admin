@@ -26,7 +26,6 @@
       </a-form-item>
 
       <a-form-item
-
         :label-col="{ span: 5 }"
         :wrapper-col="{ span: 16 }"
         label="Logo"
@@ -64,7 +63,7 @@
   components: {}
 })
   export default class WxModal extends Vue {
-   @Provide() visible: Boolean = false
+    @Provide() visible: Boolean = false
     @Provide() confirmLoading: Boolean = false;
     @Provide() form: any = null
     @Provide() fileList: Array<any> =[]
@@ -144,12 +143,6 @@
         }
       return false
     }
-  // handleSelectChange(value:any) {
-  //   console.log(value)
-  //   this.form.setFieldsValue({
-  //     note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`
-  //   })
-  // }
   }
 </script>
 

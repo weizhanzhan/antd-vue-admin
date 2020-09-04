@@ -104,10 +104,11 @@ $color:red;
 
 .login-container{
     width:100%;
+    background: #f0f2f5;
     min-height:100%;
     min-width: 1200px;
     box-shadow: 2px 2px 20px #eeeeee;
-    // background-image: url('/banner2.jpg');
+    background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
     background-repeat:no-repeat;
     background-size: 100% 100%;
     align-items: center;
