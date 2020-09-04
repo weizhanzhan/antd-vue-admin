@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/vue-3.0.0/next-brightgreen.svg">
     </a>
     <a href="https://github.com/vueComponent/ant-design-vue?utm_source=gold_browser_extension">
-        <img src="https://img.shields.io/badge/ant--design--vue-1.3.5-informational">
+        <img src="https://img.shields.io/badge/ant--design--vue-1.6.5-informational">
     </a>
     <a href="https://github.com/prettier/prettier">
         <img src="https://img.shields.io/badge/code style-prettier-brightgreen.svg">
